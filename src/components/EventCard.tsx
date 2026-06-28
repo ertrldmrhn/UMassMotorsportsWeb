@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { Calendar, Clock, MapPin } from "lucide-react";
 import type { ClubEvent } from "@/data/events";
 
 interface EventCardProps {
@@ -18,53 +20,75 @@ function formatDate(dateStr: string): string {
 export default function EventCard({ event, past = false }: EventCardProps) {
   return (
     <div
-      className={`border rounded-lg p-5 ${
-        past ? "opacity-50 border-gray-200" : "border-gray-300"
+      className={`flex flex-col sm:flex-row overflow-hidden rounded-xl border transition-colors ${
+        past
+          ? "border-gray-100 opacity-55"
+          : "border-gray-200 hover:border-gray-300"
       }`}
     >
-      <div className="flex flex-wrap items-start justify-between gap-2">
-        <h3
-          className={`text-lg font-semibold ${
-            past ? "text-gray-500" : "text-gray-900"
-          }`}
-        >
-          {event.title}
-        </h3>
-        {past && (
-          <span className="text-xs text-gray-400 border border-gray-200 rounded px-2 py-0.5">
-            Past
+      {/* Thumbnail or red accent bar */}
+      {event.image ? (
+        <div className="relative h-48 sm:h-auto sm:w-52 shrink-0">
+          <Image
+            src={event.image}
+            alt={event.title}
+            fill
+            className="object-cover"
+          />
+        </div>
+      ) : (
+        <div className="hidden sm:block w-1.5 bg-umass shrink-0" />
+      )}
+
+      {/* Info */}
+      <div className="flex-1 p-5">
+        <div className="flex items-start justify-between gap-2 mb-3">
+          <h3
+            className={`font-bold text-lg leading-tight ${
+              past ? "text-gray-500" : "text-gray-900"
+            }`}
+          >
+            {event.title}
+          </h3>
+          {past && (
+            <span className="text-xs text-gray-400 border border-gray-200 rounded px-2 py-0.5 shrink-0">
+              Past
+            </span>
+          )}
+        </div>
+
+        <div className="flex flex-col gap-1.5 text-sm text-gray-500 mb-3">
+          <span className="flex items-center gap-2">
+            <Calendar size={13} className="text-umass shrink-0" />
+            {formatDate(event.date)}
           </span>
+          <span className="flex items-center gap-2">
+            <Clock size={13} className="text-umass shrink-0" />
+            {event.time}
+          </span>
+          <span className="flex items-center gap-2">
+            <MapPin size={13} className="text-umass shrink-0" />
+            {event.location}
+          </span>
+        </div>
+
+        {event.description && (
+          <p className="text-sm text-gray-600 leading-relaxed">
+            {event.description}
+          </p>
+        )}
+
+        {event.link && (
+          <a
+            href={event.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-block text-sm font-medium text-umass hover:underline"
+          >
+            More info →
+          </a>
         )}
       </div>
-
-      <div className="mt-2 space-y-1 text-sm text-gray-600">
-        <p>
-          <span className="font-medium text-gray-700">Date:</span>{" "}
-          {formatDate(event.date)}
-        </p>
-        <p>
-          <span className="font-medium text-gray-700">Time:</span> {event.time}
-        </p>
-        <p>
-          <span className="font-medium text-gray-700">Location:</span>{" "}
-          {event.location}
-        </p>
-      </div>
-
-      {event.description && (
-        <p className="mt-3 text-sm text-gray-600">{event.description}</p>
-      )}
-
-      {event.link && (
-        <a
-          href={event.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 inline-block text-sm text-red-800 hover:underline"
-        >
-          More info →
-        </a>
-      )}
     </div>
   );
 }

@@ -20,7 +20,7 @@ const navLinks = [
   { href: "/schedule", label: "Schedule" },
   { href: "/photos", label: "Photos" },
   { href: "/sponsors", label: "Sponsors" },
-  { href: "/eboard", label: "E-Board" },
+  { href: "/about", label: "About Us" },
 ];
 
 export default function Header() {
@@ -71,7 +71,7 @@ export default function Header() {
             href={site.discord}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-umass text-white text-sm font-semibold rounded hover:bg-umass-dark transition-colors"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-discord text-white text-sm font-semibold rounded hover:opacity-90 transition-opacity"
           >
             <DiscordIcon />
             Join Discord
@@ -109,7 +109,7 @@ export default function Header() {
               href={site.discord}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 py-3 bg-umass text-white text-sm font-semibold rounded text-center hover:bg-umass-dark transition-colors flex items-center justify-center gap-2"
+              className="mt-3 py-3 bg-discord text-white text-sm font-semibold rounded text-center hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
               onClick={() => setOpen(false)}
             >
               <DiscordIcon />

@@ -63,7 +63,7 @@ export default function SponsorsPage() {
       <div className="space-y-10">
         {/* Intro */}
         <section>
-          <h1 className="text-3xl font-bold text-gray-900 mb-3">
+          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 mb-3">
             Support UMass Motorsports
           </h1>
           <p className="text-gray-500 leading-relaxed">
@@ -75,7 +75,7 @@ export default function SponsorsPage() {
 
         {/* Two-column benefits */}
         <section className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="bg-gray-50 rounded-xl p-5">
+          <div className="bg-white border border-gray-200 rounded-lg p-5">
             <p className="text-xs font-semibold uppercase tracking-widest text-umass mb-3">
               What your support funds
             </p>
@@ -99,7 +99,7 @@ export default function SponsorsPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-xl p-5">
+          <div className="bg-white border border-gray-200 rounded-lg p-5">
             <p className="text-xs font-semibold uppercase tracking-widest text-umass mb-3">
               What sponsors receive
             </p>
@@ -203,7 +203,7 @@ export default function SponsorsPage() {
 
             <button
               type="submit"
-              className="px-6 py-2.5 bg-umass text-white text-sm font-semibold rounded-lg hover:bg-umass-dark transition-colors"
+              className="px-6 py-2.5 bg-umass text-white text-sm font-semibold rounded hover:bg-umass-dark transition-colors"
             >
               Send Message
             </button>

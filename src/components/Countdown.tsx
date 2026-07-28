@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 interface CountdownProps {
-  targetDate: string; // ISO 8601: "2026-09-13"
-  targetTime?: string; // "9:00 AM" — if omitted, counts to midnight
+  targetDate: string;
+  targetTime?: string;
 }
 
 interface TimeLeft {
@@ -51,7 +51,7 @@ export default function Countdown({ targetDate, targetTime }: CountdownProps) {
 
   if (!timeLeft) {
     return (
-      <p className="text-sm text-white/60 italic">
+      <p className="text-sm text-white/50 italic">
         Event is underway or has passed.
       </p>
     );
@@ -65,15 +65,17 @@ export default function Countdown({ targetDate, targetTime }: CountdownProps) {
   ];
 
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-3" role="timer" aria-label="Countdown to event">
       {units.map(({ label, value }) => (
-        <div key={label} className="text-center">
-          <div className="text-4xl md:text-5xl font-bold tabular-nums text-red-400 leading-none">
-            {String(value).padStart(2, "0")}
+        <div key={label} className="flex flex-col items-center gap-1.5">
+          <div className="bg-black/35 border border-white/[0.08] rounded-sm px-3 py-2 min-w-[62px] md:min-w-[72px] text-center">
+            <span className="block text-4xl md:text-5xl font-bold tabular-nums text-red-400 leading-none">
+              {String(value).padStart(2, "0")}
+            </span>
           </div>
-          <div className="text-xs text-white/50 uppercase tracking-widest mt-2">
+          <span className="text-[10px] text-white/40 uppercase tracking-widest">
             {label}
-          </div>
+          </span>
         </div>
       ))}
     </div>

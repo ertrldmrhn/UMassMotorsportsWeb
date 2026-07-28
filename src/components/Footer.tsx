@@ -5,44 +5,57 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-gray-200 bg-white">
-      <div className="max-w-5xl mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-sm text-gray-400">
+    <footer className="bg-charcoal text-white mt-auto">
+      <div className="max-w-5xl mx-auto px-4 pt-8 pb-6">
+        {/* Top row */}
+        <div className="flex flex-col md:flex-row md:items-start justify-between gap-5 pb-6 border-b border-white/10">
+          <div>
+            <p className="text-sm font-bold tracking-wide text-white uppercase">
+              {site.name}
+            </p>
+            <p className="text-xs text-white/40 mt-1 leading-relaxed">
+              Est. 1996 · Student-run automotive community at UMass Amherst
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/50">
+            <a
+              href={site.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Instagram
+            </a>
+            <a
+              href={site.discord}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Discord
+            </a>
+            <a
+              href={site.campusPulse}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Campus Pulse
+            </a>
+            <a
+              href={`mailto:${site.email}`}
+              className="flex items-center gap-1.5 hover:text-white transition-colors"
+            >
+              <Mail size={13} />
+              {site.email}
+            </a>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <p className="text-xs text-white/25 pt-4">
           © {year} UMass Motorsports Club
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-5 text-sm text-gray-500">
-          <a
-            href={site.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-800 transition-colors"
-          >
-            Instagram
-          </a>
-          <a
-            href={site.discord}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-800 transition-colors"
-          >
-            Discord
-          </a>
-          <a
-            href={site.campusPulse}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-800 transition-colors"
-          >
-            Campus Pulse
-          </a>
-          <a
-            href={`mailto:${site.email}`}
-            className="flex items-center gap-1.5 hover:text-gray-800 transition-colors"
-          >
-            <Mail size={13} />
-            {site.email}
-          </a>
-        </div>
       </div>
     </footer>
   );

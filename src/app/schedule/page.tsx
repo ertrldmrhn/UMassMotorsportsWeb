@@ -15,8 +15,8 @@ export default function SchedulePage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold text-gray-900 mb-1">Schedule</h1>
-      <p className="text-sm text-gray-400 mb-10">
+      <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 mb-1">Schedule</h1>
+      <p className="text-sm text-gray-500 mb-10">
         All events for the current season.
       </p>
 

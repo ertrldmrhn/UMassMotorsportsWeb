@@ -53,7 +53,7 @@ export default function HomePage() {
   const nextEvent = getNextEvent();
 
   return (
-    <div className="max-w-5xl mx-auto px-4 pt-5 pb-8 space-y-5">
+    <div className="max-w-5xl mx-auto px-4 pt-4 pb-10 space-y-4">
       {/* Utility link bar */}
       <nav aria-label="Club links" className="flex flex-wrap justify-center gap-x-1 gap-y-1">
         {socialLinks.map((link) => (
@@ -63,7 +63,7 @@ export default function HomePage() {
             {...(link.external
               ? { target: "_blank", rel: "noopener noreferrer" }
               : {})}
-            className="group flex items-center gap-1.5 px-3 py-2 rounded-md text-gray-500 hover:text-umass hover:bg-umass/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-umass/50"
+            className="group flex items-center gap-1.5 px-3 py-2 rounded text-gray-500 hover:text-umass hover:bg-umass/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-umass/50"
           >
             <span className="shrink-0 text-gray-400 group-hover:text-umass transition-colors">
               {link.icon}
@@ -73,9 +73,12 @@ export default function HomePage() {
         ))}
       </nav>
 
-      {/* Featured event banner */}
+      {/* Featured event hero */}
       {nextEvent ? (
-        <div className="relative rounded-2xl overflow-hidden min-h-[380px] md:min-h-[500px] flex flex-col justify-end">
+        <div className="relative rounded-xl overflow-hidden min-h-[440px] md:min-h-[560px] flex flex-col justify-end">
+          {/* Left red accent stripe */}
+          <div className="absolute left-0 top-0 bottom-0 w-1 bg-umass z-20" />
+
           {/* Background */}
           {nextEvent.image ? (
             <Image
@@ -98,32 +101,32 @@ export default function HomePage() {
             </>
           )}
 
-          {/* Dark gradient overlay — always present */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-black/15" />
 
           {/* Content */}
-          <div className="relative z-10 p-6 md:p-10 text-white">
-            <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-3">
+          <div className="relative z-10 px-7 md:px-10 pb-7 md:pb-10 pt-10 text-white">
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-3">
               {nextEvent.title}
             </h2>
 
-            <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-white/70 mb-4">
+            <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-white/65 mb-5">
               <span className="flex items-center gap-1.5">
-                <Calendar size={14} className="text-red-400 shrink-0" />
+                <Calendar size={13} className="text-red-400 shrink-0" />
                 {formatDate(nextEvent.date)}
               </span>
               <span className="flex items-center gap-1.5">
-                <Clock size={14} className="text-red-400 shrink-0" />
+                <Clock size={13} className="text-red-400 shrink-0" />
                 {nextEvent.time}
               </span>
               <span className="flex items-center gap-1.5">
-                <MapPin size={14} className="text-red-400 shrink-0" />
+                <MapPin size={13} className="text-red-400 shrink-0" />
                 {nextEvent.location}
               </span>
             </div>
 
             {nextEvent.description && (
-              <p className="text-sm text-white/75 mb-7 max-w-xl leading-relaxed">
+              <p className="text-sm text-white/70 mb-7 max-w-xl leading-relaxed">
                 {nextEvent.description}
               </p>
             )}
@@ -136,7 +139,7 @@ export default function HomePage() {
             <div className="mt-7">
               <Link
                 href="/schedule"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 text-sm font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 text-sm font-semibold rounded hover:bg-gray-100 transition-colors"
               >
                 View Full Schedule
               </Link>
@@ -144,7 +147,7 @@ export default function HomePage() {
           </div>
         </div>
       ) : (
-        <div className="rounded-2xl bg-gray-50 border border-gray-200 p-10 text-center">
+        <div className="rounded-lg bg-white border border-gray-200 p-10 text-center">
           <p className="text-gray-500 mb-4">
             No upcoming events scheduled. Check back soon.
           </p>

@@ -5,4 +5,9 @@
   --color-umass-dark: #6b1616;
   --color-charcoal: #1c1c1c;
   --color-discord: #5865F2;
+  --color-surface: #F7F7F5;
+}
+
+body {
+  background-color: #F7F7F5;
 }

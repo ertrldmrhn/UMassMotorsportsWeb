@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "UMass Motorsports Club",
   description:
-    "UMass Amherst Motorsports Club — events, schedule, and more. Est. 1996.",
+    "UMass Amherst Motorsports Club: events, schedule, and more. Est. 1996.",
 };
 
 export default function RootLayout({

@@ -18,6 +18,7 @@ function DiscordIcon() {
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/schedule", label: "Schedule" },
+  { href: "/photos", label: "Photos" },
   { href: "/sponsors", label: "Sponsors" },
   { href: "/eboard", label: "E-Board" },
 ];

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { events } from "@/data/events";
 import { site } from "@/lib/site";
 import Countdown from "@/components/Countdown";
-import { Mail, BookOpen, HardDrive, Calendar, Clock, MapPin } from "lucide-react";
+import { BookOpen, Calendar, Clock, MapPin } from "lucide-react";
 
 function InstagramIcon() {
   return (
@@ -45,8 +45,6 @@ const socialLinks = [
   { label: "Instagram", href: site.instagram, icon: <InstagramIcon />, external: true },
   { label: "Discord", href: site.discord, icon: <DiscordIcon />, external: true },
   { label: "Campus Pulse", href: site.campusPulse, icon: <BookOpen size={18} />, external: true },
-  { label: "Google Gallery", href: site.googleDrive, icon: <HardDrive size={18} />, external: true },
-  { label: "Email Us", href: `mailto:${site.email}`, icon: <Mail size={18} />, external: false },
 ];
 
 export default function HomePage() {

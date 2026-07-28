@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { site } from "@/lib/site";
-import { Mail } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -42,13 +42,9 @@ export default function Footer() {
             >
               Campus Pulse
             </a>
-            <a
-              href={`mailto:${site.email}`}
-              className="flex items-center gap-1.5 hover:text-white transition-colors"
-            >
-              <Mail size={13} />
-              {site.email}
-            </a>
+            <Link href="/photos" className="hover:text-white transition-colors">
+              Photos
+            </Link>
           </div>
         </div>
 

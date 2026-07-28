@@ -31,9 +31,9 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-      <div className="max-w-5xl mx-auto px-4 h-16 grid grid-cols-[auto_1fr_auto] items-center gap-4">
-        {/* Logo */}
-        <Link href="/" className="flex items-center shrink-0">
+      <div className="relative max-w-5xl mx-auto px-4 h-16 flex items-center md:grid md:grid-cols-[auto_1fr_auto] md:gap-4">
+        {/* Logo — absolute center on mobile, grid-placed on desktop */}
+        <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center shrink-0 md:static md:left-auto md:translate-x-0">
           <Image
             src="/logo.png"
             alt="UMass Motorsports Club"
@@ -65,7 +65,7 @@ export default function Header() {
         </nav>
 
         {/* Right: Discord CTA + hamburger */}
-        <div className="flex items-center justify-end gap-3">
+        <div className="relative z-10 ml-auto md:ml-0 flex items-center justify-end gap-3">
           <a
             href={site.discord}
             target="_blank"

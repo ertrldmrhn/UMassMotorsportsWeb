@@ -11,3 +11,18 @@
 body {
   background-color: #F7F7F5;
 }
+
+@keyframes countdown-digit-in {
+  from { opacity: 0.2; transform: translateY(-3px); }
+  to   { opacity: 1;   transform: translateY(0); }
+}
+
+.countdown-digit {
+  animation: countdown-digit-in 0.15s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .countdown-digit {
+    animation: none;
+  }
+}

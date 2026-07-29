@@ -67,9 +67,7 @@ export default function SponsorsPage() {
             Support UMass Motorsports
           </h1>
           <p className="text-gray-500 leading-relaxed">
-            We&apos;re a student-run club competing in autocross events and building
-            our own vehicles from the ground up. Every sponsor helps us stay on
-            track — literally.
+            We&apos;re a student-run club hosting car shows, weekly meets, cruises and tournaments. Every sponsor helps us keep the club on the road.
           </p>
         </section>
 
@@ -82,19 +80,19 @@ export default function SponsorsPage() {
             <ul className="space-y-2 text-sm text-gray-600">
               <li className="flex items-start gap-2">
                 <span className="text-umass mt-0.5">—</span>
-                Vehicle maintenance &amp; upgrades
+                Event registration
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-umass mt-0.5">—</span>
-                Event registration &amp; travel
+                Equipment
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-umass mt-0.5">—</span>
-                Safety equipment
+                Tournaments
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-umass mt-0.5">—</span>
-                Shop tools &amp; consumables
+                Consumables
               </li>
             </ul>
           </div>
@@ -106,19 +104,19 @@ export default function SponsorsPage() {
             <ul className="space-y-2 text-sm text-gray-600">
               <li className="flex items-start gap-2">
                 <span className="text-umass mt-0.5">—</span>
-                Logo on vehicles &amp; livery
+                Logo on merchandise
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-umass mt-0.5">—</span>
-                Website &amp; social recognition
+                Logo on our website
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-umass mt-0.5">—</span>
-                Access to engineering talent
+                Social Media posts
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-umass mt-0.5">—</span>
-                Event shoutouts &amp; mentions
+                Event shout-outs &amp; mentions
               </li>
             </ul>
           </div>

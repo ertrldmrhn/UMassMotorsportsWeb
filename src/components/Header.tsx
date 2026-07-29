@@ -31,15 +31,15 @@ export default function Header() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-umass border-b border-umass-dark">
       <div className="relative max-w-5xl mx-auto px-4 h-16 flex items-center md:grid md:grid-cols-[auto_1fr_auto] md:gap-4">
         {/* Logo — absolute center on mobile, grid-placed on desktop */}
         <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center shrink-0 md:static md:left-auto md:translate-x-0">
           <Image
-            src="/logo.png"
+            src="/logo_white.png"
             alt="UMass Motorsports Club"
-            width={160}
-            height={40}
+            width={230}
+            height={50}
             className="h-10 w-auto object-contain"
             priority
           />
@@ -55,8 +55,8 @@ export default function Header() {
                 href={link.href}
                 className={`text-sm font-medium transition-colors border-b-2 py-0.5 ${
                   active
-                    ? "text-umass border-umass"
-                    : "text-gray-600 hover:text-umass border-transparent"
+                    ? "text-white border-white"
+                    : "text-white/70 hover:text-white border-transparent hover:border-white/40"
                 }`}
               >
                 {link.label}
@@ -71,13 +71,13 @@ export default function Header() {
             href={site.discord}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-discord text-white text-sm font-semibold rounded hover:opacity-90 transition-opacity"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-white text-discord text-sm font-semibold rounded hover:bg-white/90 transition-colors"
           >
             <DiscordIcon />
             Join Discord
           </a>
           <button
-            className="md:hidden p-2 rounded text-gray-700 hover:bg-gray-100"
+            className="md:hidden p-2 rounded text-white hover:bg-white/10 transition-colors"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -88,7 +88,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-gray-100 bg-white">
+        <div className="md:hidden border-t border-white/10 bg-umass-dark">
           <nav className="flex flex-col px-4 py-3 gap-0">
             {navLinks.map((link) => {
               const active = isActive(link.href);
@@ -96,8 +96,8 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`py-3 text-sm font-medium border-b border-gray-50 last:border-0 transition-colors ${
-                    active ? "text-umass" : "text-gray-700 hover:text-umass"
+                  className={`py-3 text-sm font-medium border-b border-white/10 last:border-0 transition-colors ${
+                    active ? "text-white" : "text-white/70 hover:text-white"
                   }`}
                   onClick={() => setOpen(false)}
                 >
@@ -109,7 +109,7 @@ export default function Header() {
               href={site.discord}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 py-3 bg-discord text-white text-sm font-semibold rounded text-center hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+              className="mt-3 py-3 bg-white text-discord text-sm font-semibold rounded text-center hover:bg-white/90 transition-colors flex items-center justify-center gap-2"
               onClick={() => setOpen(false)}
             >
               <DiscordIcon />

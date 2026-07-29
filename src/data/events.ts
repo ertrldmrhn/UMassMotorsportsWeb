@@ -28,6 +28,7 @@ export const events: ClubEvent[] = [
     time: "4:00 PM",
     location: "Lot 44B, UMass Amherst",
     description: "Semester kickoff meeting. Meet the team, learn about the season ahead.",
+    image: "/events/Opener_Meet.jpeg",
   },
   {
     title: "Berkshire Trail Cruise",
@@ -35,6 +36,7 @@ export const events: ClubEvent[] = [
     time: "4:00 PM",
     location: "Lot 44B, UMass Amherst",
     description: "",
+    image: "/events/Berkshire_Trail.jpg",
   },
   {
     title: "Car Photography Night",
@@ -42,6 +44,7 @@ export const events: ClubEvent[] = [
     time: "4:00 PM",
     location: "TBD",
     description: "",
+    image: "/events/Photo_Night.jpeg",
   },
   {
     title: "New Salem Mini Cruise/Drive",
@@ -49,6 +52,7 @@ export const events: ClubEvent[] = [
     time: "4:00 PM",
     location: "TBD",
     description: "",
+    image: "/events/New_Salem.jpeg",
   },
   {
     title: "PVIK Tournament w/ F1 Club + Minutemen Racing (?)",
@@ -63,6 +67,7 @@ export const events: ClubEvent[] = [
     time: "4:00 PM",
     location: "TBD",
     description: "",
+    image: "/events/Mohawk_Trail.JPG",
   },
   {
     title: "Trunk or Treat",

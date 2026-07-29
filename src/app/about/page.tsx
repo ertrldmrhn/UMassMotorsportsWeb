@@ -35,13 +35,12 @@ export default function AboutPage() {
           <p>
             UMass Motorsports is a student organization at the University of Massachusetts
             Amherst dedicated to all things automotive. Founded in 1996, we bring together
-            students who share a passion for cars — whether that&apos;s wrenching, driving,
-            or just appreciating a good build.
+            students who share a passion for cars.
           </p>
           <p>
-            We host cruises, meetups, autocross events, and community build days throughout
+            We host cruises, meetups, car shows, and community build days throughout
             the academic year. Membership is open to all UMass students regardless of
-            experience level. If you&apos;re into cars, you&apos;re welcome here.
+            car ownership. If you&apos;re into cars, you&apos;re welcome here.
           </p>
           <p>
             Questions? Reach us at{" "}
@@ -57,7 +56,7 @@ export default function AboutPage() {
       <section>
         <h2 className="text-2xl font-bold tracking-tight text-gray-900 mb-1">Executive Board</h2>
         <p className="text-sm text-gray-500 mb-8">
-          The team running the club for the current academic year.
+          Your E-Board for 2026-27 academic year.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

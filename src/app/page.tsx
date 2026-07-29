@@ -4,6 +4,7 @@ import Image from "next/image";
 import { events } from "@/data/events";
 import { site } from "@/lib/site";
 import Countdown from "@/components/Countdown";
+import UpcomingEvents from "@/components/UpcomingEvents";
 import { Calendar, Clock, MapPin } from "lucide-react";
 
 function InstagramIcon() {
@@ -204,6 +205,8 @@ export default function HomePage() {
           </div>
         )}
       </div>
+
+      {nextEvent && <UpcomingEvents excludeDate={nextEvent.date} />}
     </>
   );
 }

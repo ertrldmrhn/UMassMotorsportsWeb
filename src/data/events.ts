@@ -7,6 +7,7 @@ export interface ClubEvent {
   title: string;
   date: string;       // ISO 8601 format: "2026-09-14"
   time: string;       // Human-readable: "9:00 AM"
+  endTime?: string;   // Optional end time; defaults to 2 hours after start
   location: string;
   description: string;
   link?: string;      // Optional external link for more info
@@ -41,7 +42,7 @@ export const events: ClubEvent[] = [
   {
     title: "Car Photography Night",
     date: "2026-10-02",
-    time: "4:00 PM",
+    time: "7:00 PM",
     location: "TBD",
     description: "",
     image: "/events/Photo_Night.jpeg",

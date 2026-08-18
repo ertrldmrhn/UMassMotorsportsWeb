@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { events } from "@/data/events";
 import { site } from "@/lib/site";
+import { getEventEnd, parseEventTime } from "@/lib/eventTime";
 import Countdown from "@/components/Countdown";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import { Calendar, Clock, MapPin } from "lucide-react";
@@ -33,12 +34,15 @@ function DiscordIcon() {
 }
 
 function getNextEvent() {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const now = Date.now();
   return (
     events
-      .filter((e) => new Date(e.date) >= today)
-      .sort((a, b) => a.date.localeCompare(b.date))[0] ?? null
+      .filter((e) => getEventEnd(e).getTime() > now)
+      .sort((a, b) => {
+        const diff = a.date.localeCompare(b.date);
+        if (diff !== 0) return diff;
+        return parseEventTime(a.date, a.time).getTime() - parseEventTime(b.date, b.time).getTime();
+      })[0] ?? null
   );
 }
 
@@ -175,10 +179,7 @@ export default function HomePage() {
               )}
 
               <div className="flex justify-center md:justify-start">
-                <Countdown
-                  targetDate={nextEvent.date}
-                  targetTime={nextEvent.time}
-                />
+                <Countdown event={nextEvent} />
               </div>
 
               <div className="mt-7 flex justify-center md:justify-start">

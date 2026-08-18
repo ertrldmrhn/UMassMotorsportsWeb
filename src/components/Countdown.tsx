@@ -1,11 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
-interface CountdownProps {
-  targetDate: string;
-  targetTime?: string;
-}
+import { parseEventTime, getEventEnd } from "@/lib/eventTime";
+import type { ClubEvent } from "@/data/events";
 
 interface TimeLeft {
   days: number;
@@ -14,21 +11,17 @@ interface TimeLeft {
   seconds: number;
 }
 
-function parseTarget(date: string, time?: string): Date {
-  if (!time) return new Date(`${date}T00:00:00`);
-  const [year, month, day] = date.split("-").map(Number);
-  const match = time.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
-  if (!match) return new Date(`${date}T00:00:00`);
-  let hours = parseInt(match[1]);
-  const minutes = parseInt(match[2]);
-  const period = match[3].toUpperCase();
-  if (period === "PM" && hours !== 12) hours += 12;
-  if (period === "AM" && hours === 12) hours = 0;
-  return new Date(year, month - 1, day, hours, minutes, 0);
+type Status = "upcoming" | "ongoing" | "past";
+
+function getStatus(start: Date, end: Date): Status {
+  const now = Date.now();
+  if (now < start.getTime()) return "upcoming";
+  if (now < end.getTime()) return "ongoing";
+  return "past";
 }
 
-function getTimeLeft(target: Date): TimeLeft | null {
-  const diff = target.getTime() - Date.now();
+function getTimeLeft(start: Date): TimeLeft | null {
+  const diff = start.getTime() - Date.now();
   if (diff <= 0) return null;
   return {
     days:    Math.floor(diff / (1000 * 60 * 60 * 24)),
@@ -40,16 +33,33 @@ function getTimeLeft(target: Date): TimeLeft | null {
 
 const UNITS = ["DAYS", "HRS", "MIN", "SEC"] as const;
 
-export default function Countdown({ targetDate, targetTime }: CountdownProps) {
-  const target = parseTarget(targetDate, targetTime);
-  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(() => getTimeLeft(target));
+export default function Countdown({ event }: { event: ClubEvent }) {
+  const start = parseEventTime(event.date, event.time);
+  const end = getEventEnd(event);
+
+  const [status, setStatus] = useState<Status>(() => getStatus(start, end));
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(() => getTimeLeft(start));
 
   useEffect(() => {
-    const id = setInterval(() => setTimeLeft(getTimeLeft(target)), 1000);
+    const id = setInterval(() => {
+      setStatus(getStatus(start, end));
+      setTimeLeft(getTimeLeft(start));
+    }, 1000);
     return () => clearInterval(id);
-  }, [target]);
+  }, [start, end]);
 
-  if (!timeLeft) {
+  if (status === "ongoing") {
+    return (
+      <div className="inline-flex items-center gap-2.5 px-4 py-2.5 bg-green-500/15 border border-green-500/25 rounded-sm">
+        <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+        <span className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-green-400">
+          Ongoing
+        </span>
+      </div>
+    );
+  }
+
+  if (status === "past" || !timeLeft) {
     return (
       <p className="text-sm text-white/50 italic">
         Event is underway or has passed.
@@ -81,11 +91,6 @@ export default function Countdown({ targetDate, targetTime }: CountdownProps) {
 
       {/* Timing display */}
       <div className="px-3 md:px-6 pt-3.5 pb-3.5 md:pt-4 md:pb-4">
-        {/*
-          Layout: [T−] [DAY] [:] [HRS] [:] [MIN] [:] [SEC]
-          Each column is flex-col with number on top, label below.
-          Colon columns include an invisible label-height spacer to keep baselines aligned.
-        */}
         <div className="flex items-start">
 
           {/* T− prefix column */}
@@ -93,7 +98,6 @@ export default function Countdown({ targetDate, targetTime }: CountdownProps) {
             <span className="font-mono font-bold text-[1rem] md:text-[2rem] text-white/35 leading-none tracking-tight select-none mt-[4px] md:mt-[8px]">
               T−
             </span>
-            {/* Spacer matching label height so the row stays aligned */}
             <span aria-hidden="true" className="text-[8px] mt-1.5 leading-none opacity-0 select-none pointer-events-none">·</span>
           </div>
 
@@ -110,7 +114,6 @@ export default function Countdown({ targetDate, targetTime }: CountdownProps) {
                   >
                     :
                   </span>
-                  {/* Spacer matching label height */}
                   <span aria-hidden="true" className="text-[8px] mt-1.5 leading-none opacity-0 select-none pointer-events-none">·</span>
                 </div>
               )}

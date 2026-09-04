@@ -13,15 +13,14 @@ interface TimeLeft {
 
 type Status = "upcoming" | "ongoing" | "past";
 
-function getStatus(start: Date, end: Date): Status {
-  const now = Date.now();
+function getStatus(start: Date, end: Date, now: number): Status {
   if (now < start.getTime()) return "upcoming";
   if (now < end.getTime()) return "ongoing";
   return "past";
 }
 
-function getTimeLeft(start: Date): TimeLeft | null {
-  const diff = start.getTime() - Date.now();
+function getTimeLeft(start: Date, now: number): TimeLeft | null {
+  const diff = start.getTime() - now;
   if (diff <= 0) return null;
   return {
     days:    Math.floor(diff / (1000 * 60 * 60 * 24)),
@@ -37,16 +36,17 @@ export default function Countdown({ event }: { event: ClubEvent }) {
   const start = parseEventTime(event.date, event.time);
   const end = getEventEnd(event);
 
-  const [status, setStatus] = useState<Status>(() => getStatus(start, end));
-  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(() => getTimeLeft(start));
+  // null until mounted so the prerendered HTML matches the first client render
+  const [now, setNow] = useState<number | null>(null);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setStatus(getStatus(start, end));
-      setTimeLeft(getTimeLeft(start));
-    }, 1000);
+    setNow(Date.now());
+    const id = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(id);
-  }, [start, end]);
+  }, []);
+
+  const status = now === null ? "upcoming" : getStatus(start, end, now);
+  const timeLeft = now === null ? null : getTimeLeft(start, now);
 
   if (status === "ongoing") {
     return (
@@ -59,7 +59,7 @@ export default function Countdown({ event }: { event: ClubEvent }) {
     );
   }
 
-  if (status === "past" || !timeLeft) {
+  if (status === "past") {
     return (
       <p className="text-sm text-white/50 italic">
         Event is underway or has passed.
@@ -67,7 +67,9 @@ export default function Countdown({ event }: { event: ClubEvent }) {
     );
   }
 
-  const values = [timeLeft.days, timeLeft.hours, timeLeft.minutes, timeLeft.seconds];
+  const values = timeLeft
+    ? [timeLeft.days, timeLeft.hours, timeLeft.minutes, timeLeft.seconds]
+    : null;
 
   return (
     <div
@@ -102,8 +104,8 @@ export default function Countdown({ event }: { event: ClubEvent }) {
           </div>
 
           {/* Segments */}
-          {values.map((val, i) => (
-            <React.Fragment key={UNITS[i]}>
+          {UNITS.map((unit, i) => (
+            <React.Fragment key={unit}>
 
               {/* Colon separator */}
               {i > 0 && (
@@ -121,13 +123,13 @@ export default function Countdown({ event }: { event: ClubEvent }) {
               {/* Segment column: number + label */}
               <div className="flex flex-col items-center">
                 <span
-                  key={UNITS[i] + String(val)}
+                  key={unit + String(values?.[i] ?? "--")}
                   className="countdown-digit font-mono font-bold tabular-nums text-[#c1272d] text-[1.7rem] md:text-[3.2rem] leading-none"
                 >
-                  {String(val).padStart(2, "0")}
+                  {values ? String(values[i]).padStart(2, "0") : "--"}
                 </span>
                 <span className="font-mono text-[7px] md:text-[8px] uppercase tracking-[0.22em] text-white/45 mt-1.5 leading-none">
-                  {UNITS[i]}
+                  {unit}
                 </span>
               </div>
 

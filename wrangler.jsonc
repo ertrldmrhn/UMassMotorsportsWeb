@@ -1,0 +1,12 @@
+{
+  // Cloudflare Workers static-assets config.
+  // `npm run build` emits the static export to ./out, which is uploaded as-is.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "umassmotorsportsweb",
+  "compatibility_date": "2026-09-04",
+  "assets": {
+    "directory": "./out",
+    // Serve /about for /about/ and vice versa; 404.html handles unmatched routes.
+    "not_found_handling": "404-page"
+  }
+}

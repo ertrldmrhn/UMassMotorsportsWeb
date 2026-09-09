@@ -25,7 +25,7 @@ export const events: ClubEvent[] = [
   },
   {
     title: "Opener Meet",
-    date: "2026-09-18",
+    date: "2026-09-25",
     time: "4:00 PM",
     location: "Lot 44B, UMass Amherst",
     description: "Semester kickoff meeting. Meet the team, learn about the season ahead.",
@@ -33,7 +33,7 @@ export const events: ClubEvent[] = [
   },
   {
     title: "Berkshire Trail Cruise",
-    date: "2026-09-25",
+    date: "2026-10-02",
     time: "4:00 PM",
     location: "Lot 44B, UMass Amherst",
     description: "",
@@ -41,22 +41,15 @@ export const events: ClubEvent[] = [
   },
   {
     title: "Car Photography Night",
-    date: "2026-10-02",
+    date: "2026-10-09",
     time: "7:00 PM",
     location: "TBD",
     description: "",
     image: "/events/Photo_Night.jpeg",
   },
+  
   {
-    title: "New Salem Mini Cruise/Drive",
-    date: "2026-10-09",
-    time: "4:00 PM",
-    location: "TBD",
-    description: "",
-    image: "/events/New_Salem.jpeg",
-  },
-  {
-    title: "PVIK Tournament w/ F1 Club + Minutemen Racing (?)",
+    title: "PVIK Tournament w/ F1 Club",
     date: "2026-10-16",
     time: "4:00 PM",
     location: "TBD",

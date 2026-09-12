@@ -35,7 +35,6 @@ export default function EventCard({ event, past = false }: EventCardProps) {
             fill
             className="object-cover"
             sizes="(max-width: 640px) 100vw, 208px"
-            quality={90}
           />
         </div>
       ) : (

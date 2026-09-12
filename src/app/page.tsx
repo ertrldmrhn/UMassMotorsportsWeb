@@ -1,12 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { events } from "@/data/events";
 import { site } from "@/lib/site";
-import { getEventEnd, parseEventTime } from "@/lib/eventTime";
-import Countdown from "@/components/Countdown";
-import UpcomingEvents from "@/components/UpcomingEvents";
-import { Calendar, Clock, MapPin } from "lucide-react";
+import HomeEvents from "@/components/HomeEvents";
 
 function InstagramIcon() {
   return (
@@ -33,32 +29,7 @@ function DiscordIcon() {
   );
 }
 
-function getNextEvent() {
-  const now = Date.now();
-  return (
-    events
-      .filter((e) => getEventEnd(e).getTime() > now)
-      .sort((a, b) => {
-        const diff = a.date.localeCompare(b.date);
-        if (diff !== 0) return diff;
-        return parseEventTime(a.date, a.time).getTime() - parseEventTime(b.date, b.time).getTime();
-      })[0] ?? null
-  );
-}
-
-function formatDate(dateStr: string): string {
-  const [year, month, day] = dateStr.split("-").map(Number);
-  return new Date(year, month - 1, day).toLocaleDateString("en-US", {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-}
-
 export default function HomePage() {
-  const nextEvent = getNextEvent();
-
   return (
     <>
       {/* Official Channels strip — full-width band between nav and hero */}
@@ -119,95 +90,12 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Hero */}
-      <div className="max-w-5xl mx-auto px-4 pt-5 pb-10">
-        {nextEvent ? (
-          <div className="relative rounded-xl overflow-hidden min-h-[440px] md:min-h-[560px] flex flex-col justify-end">
-            {/* Left red accent stripe */}
-            <div className="absolute left-0 top-0 bottom-0 w-1 bg-umass z-20" />
-
-            {/* Background */}
-            {nextEvent.image ? (
-              <Image
-                src={nextEvent.image}
-                alt={nextEvent.title}
-                fill
-                className="object-cover"
-                priority
-              />
-            ) : (
-              <>
-                <div className="absolute inset-0 bg-charcoal" />
-                <div
-                  className="absolute inset-0 opacity-40"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse at top right, #881c1c 0%, transparent 65%)",
-                  }}
-                />
-              </>
-            )}
-
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-black/15" />
-
-            {/* Content */}
-            <div className="relative z-10 px-7 md:px-10 pb-7 md:pb-10 pt-10 text-white">
-              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-3">
-                {nextEvent.title}
-              </h2>
-
-              <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-white/65 mb-5">
-                <span className="flex items-center gap-1.5">
-                  <Calendar size={13} className="text-red-400 shrink-0" />
-                  {formatDate(nextEvent.date)}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Clock size={13} className="text-red-400 shrink-0" />
-                  {nextEvent.time}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <MapPin size={13} className="text-red-400 shrink-0" />
-                  {nextEvent.location}
-                </span>
-              </div>
-
-              {nextEvent.description && (
-                <p className="text-sm text-white/70 mb-7 max-w-xl leading-relaxed">
-                  {nextEvent.description}
-                </p>
-              )}
-
-              <div className="flex justify-center md:justify-start">
-                <Countdown event={nextEvent} />
-              </div>
-
-              <div className="mt-7 flex justify-center md:justify-start">
-                <Link
-                  href="/schedule"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 text-sm font-semibold rounded hover:bg-gray-100 transition-colors"
-                >
-                  View Full Schedule
-                </Link>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="rounded-lg bg-white border border-gray-200 p-10 text-center">
-            <p className="text-gray-500 mb-4">
-              No upcoming events scheduled. Check back soon.
-            </p>
-            <Link
-              href="/schedule"
-              className="text-sm font-medium text-umass hover:underline"
-            >
-              View past events →
-            </Link>
-          </div>
-        )}
-      </div>
-
-      {nextEvent && <UpcomingEvents excludeDate={nextEvent.date} />}
+      {/*
+        Hero + upcoming preview are client-rendered: this is a static export, so
+        picking the featured event here would freeze it at build time and the
+        homepage would keep featuring an event that has already happened.
+      */}
+      <HomeEvents events={events} buildNow={Date.now()} />
     </>
   );
 }

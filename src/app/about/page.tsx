@@ -65,14 +65,21 @@ export default function AboutPage() {
               key={member.name}
               className="rounded-lg overflow-hidden border border-gray-200 bg-white hover:border-gray-300 transition-colors"
             >
-              {/* Photo */}
-              <div className="relative h-52 bg-gray-100">
+              {/*
+                Photo. The files in public/eboard are pre-cropped to 3:2 around
+                each member and their car, so the box is pinned to that same
+                aspect — a fixed pixel height would change the box ratio per
+                breakpoint and re-crop those framings. object-cover is then
+                effectively a no-op and nothing gets clipped at any width.
+              */}
+              <div className="relative aspect-[3/2] bg-gray-100">
                 {member.image ? (
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover object-top"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
                   />
                 ) : (
                   <Initials name={member.name} />

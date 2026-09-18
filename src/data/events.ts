@@ -32,12 +32,11 @@ export const events: ClubEvent[] = [
     image: "/events/Opener_Meet.jpeg",
   },
   {
-    title: "Berkshire Trail Cruise",
+    title: "Shelburne Falls Cruise",
     date: "2026-10-02",
     time: "4:00 PM",
     location: "Lot 44B, UMass Amherst",
     description: "",
-    image: "/events/Berkshire_Trail.jpg",
   },
   {
     title: "Car Photography Night",
@@ -78,11 +77,12 @@ export const events: ClubEvent[] = [
     description: "",
   },
   {
-    title: "Charlemont Fairgrounds Cruise",
+    title: "Berkshire Trail Cruise",
     date: "2026-11-13",
     time: "4:00 PM",
-    location: "TBD",
+    location: "Lot 44B, UMass Amherst",
     description: "",
+    image: "/events/Berkshire_Trail.jpg",
   },
   {
     title: "Carsgiving Day",

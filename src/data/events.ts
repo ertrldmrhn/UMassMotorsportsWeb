@@ -37,6 +37,7 @@ export const events: ClubEvent[] = [
     time: "4:00 PM",
     location: "Lot 44B, UMass Amherst",
     description: "",
+    image: "/events/shelburne-falls.jpeg",
   },
   {
     title: "Car Photography Night",
@@ -59,7 +60,7 @@ export const events: ClubEvent[] = [
     date: "2026-10-23",
     time: "4:00 PM",
     location: "TBD",
-    description: "",
+    description: "A cruise along the Mohawk Trail, named the most scenic road in Massachusetts by AAA.",
     image: "/events/Mohawk_Trail.JPG",
   },
   {

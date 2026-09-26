@@ -9,6 +9,7 @@ export const site = {
   discord: "https://discord.gg/XheXZCv7Jb",
   // TODO: Set your Campus Pulse URL
   campusPulse: "https://umassamherst.campuslabs.com/engage/organization/motorsportsclub",
-  // TODO: Set your Google Photos album URL
-  googlePhotos: "https://photos.app.goo.gl/71mk2WNZqwygXKi38",
+  // Shared Google Photos album. Note: Google Photos sends
+  // X-Frame-Options: SAMEORIGIN, so this can only be linked to, not embedded.
+  googlePhotos: "https://photos.app.goo.gl/9tqkYrKBVMvkQS889",
 };

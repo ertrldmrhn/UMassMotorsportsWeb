@@ -29,6 +29,32 @@ function DiscordIcon() {
   );
 }
 
+/**
+ * Small outbound arrow shown only where the pointer can't hover. On a mouse the
+ * hover state already signals the link, so this stays hidden and the strip
+ * keeps its clean typographic look.
+ */
+function OutboundGlyph() {
+  return (
+    <svg
+      width="9"
+      height="9"
+      viewBox="0 0 10 10"
+      aria-hidden="true"
+      className="hidden touch:block shrink-0 text-umass/55"
+    >
+      <path
+        d="M2.5 7.5 7.5 2.5M3.8 2.5h3.7v3.7"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function HomePage() {
   return (
     <>
@@ -38,21 +64,34 @@ export default function HomePage() {
           <p className="text-[10px] uppercase tracking-[0.22em] text-gray-400 font-medium mb-2 text-center md:text-left md:mb-0 md:absolute md:left-8 md:top-1/2 md:-translate-y-1/2">
             Official Channels
           </p>
-          <nav aria-label="Official channels" className="flex flex-wrap justify-center gap-x-6 gap-y-1 md:py-0.5">
+          {/*
+            On a mouse these links reveal themselves on hover. Touch devices
+            never fire hover, so there they'd just be grey text — the `touch:`
+            variant promotes the hover cue to the resting state instead: a red
+            accent tick (the same one the event cards and countdown use), a
+            full-strength icon, and an outbound ↗. `active:` adds press
+            feedback, which is the one signal touch has that a mouse doesn't.
+          */}
+          <nav
+            aria-label="Official channels"
+            className="flex flex-wrap justify-center gap-x-6 gap-y-1 touch:gap-x-2.5 touch:gap-y-2 md:py-0.5"
+          >
 
             {/* Instagram */}
             <a
               href={site.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 py-1 text-gray-500 hover:text-umass transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-umass/40"
+              className="group inline-flex items-center gap-2 py-1 text-gray-500 hover:text-umass transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-umass/40
+                         touch:gap-1.5 touch:py-1.5 touch:pl-2 touch:pr-2.5 touch:border-l-2 touch:border-umass touch:bg-white/70 touch:rounded-r-sm touch:text-gray-700 touch:active:bg-white touch:active:border-umass-dark"
             >
-              <span className="shrink-0 opacity-80 group-hover:opacity-100 transition-opacity">
+              <span className="shrink-0 opacity-80 group-hover:opacity-100 touch:opacity-100 transition-opacity">
                 <InstagramIcon />
               </span>
               <span className="text-sm font-medium group-hover:underline underline-offset-2">
                 umassmoto
               </span>
+              <OutboundGlyph />
             </a>
 
             {/* Discord */}
@@ -60,14 +99,16 @@ export default function HomePage() {
               href={site.discord}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 py-1 text-gray-500 hover:text-umass transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-umass/40"
+              className="group inline-flex items-center gap-2 py-1 text-gray-500 hover:text-umass transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-umass/40
+                         touch:gap-1.5 touch:py-1.5 touch:pl-2 touch:pr-2.5 touch:border-l-2 touch:border-umass touch:bg-white/70 touch:rounded-r-sm touch:text-gray-700 touch:active:bg-white touch:active:border-umass-dark"
             >
-              <span className="shrink-0 opacity-80 group-hover:opacity-100 transition-opacity">
+              <span className="shrink-0 opacity-80 group-hover:opacity-100 touch:opacity-100 transition-opacity">
                 <DiscordIcon />
               </span>
               <span className="text-sm font-medium group-hover:underline underline-offset-2">
                 Umass Motorsport
               </span>
+              <OutboundGlyph />
             </a>
 
             {/* Campus Pulse */}
@@ -75,15 +116,17 @@ export default function HomePage() {
               href={site.campusPulse}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-umass/40"
+              className="group inline-flex items-center py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-umass/40
+                         touch:gap-1.5 touch:py-1.5 touch:pl-2 touch:pr-2.5 touch:border-l-2 touch:border-umass touch:bg-white/70 touch:rounded-r-sm touch:active:bg-white touch:active:border-umass-dark"
             >
               <Image
                 src="/campus_pulse.png"
                 alt="Campus Pulse"
                 width={800}
                 height={194}
-                className="h-8 w-auto object-contain opacity-60 group-hover:opacity-90 transition-opacity"
+                className="h-8 w-auto object-contain opacity-60 group-hover:opacity-90 touch:opacity-100 transition-opacity"
               />
+              <OutboundGlyph />
             </a>
 
           </nav>

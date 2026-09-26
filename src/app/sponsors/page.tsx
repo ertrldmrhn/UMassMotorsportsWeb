@@ -1,41 +1,10 @@
-"use client";
-
-import { useState } from "react";
 import { site } from "@/lib/site";
 
-// TODO: Replace the mailto fallback with a real email API (e.g. Resend, SendGrid)
-// when you're ready to handle form submissions server-side.
-
-interface FormState {
-  name: string;
-  company: string;
-  email: string;
-  phone: string;
-  message: string;
-}
-
-const empty: FormState = { name: "", company: "", email: "", phone: "", message: "" };
+export const metadata = {
+  title: "Sponsors | UMass Motorsports Club",
+};
 
 export default function SponsorsPage() {
-  const [form, setForm] = useState<FormState>(empty);
-
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const subject = encodeURIComponent(
-      `Sponsorship Inquiry from ${form.company || form.name}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
-    );
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-  }
-
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
 
@@ -122,90 +91,67 @@ export default function SponsorsPage() {
           </div>
         </section>
 
-        {/* Contact form */}
+        {/* Contact form — hosted by Google Forms, embedded here */}
         <section>
           <h2 className="text-xl font-bold text-gray-900 mb-1">Get in touch</h2>
           <p className="text-sm text-gray-400 mb-6">
             Interested in sponsoring? Fill out the form and we&apos;ll follow up within a few days.
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Name <span className="text-umass">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  value={form.name}
-                  onChange={handleChange}
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-gray-400 bg-white"
-                />
+          {site.sponsorForm ? (
+            <>
+              <div className="rounded-lg border border-gray-200 bg-white overflow-hidden">
+                <iframe
+                  src={site.sponsorForm}
+                  title="Sponsorship enquiry form"
+                  height={site.sponsorFormHeight}
+                  className="w-full block"
+                  loading="lazy"
+                >
+                  Loading form…
+                </iframe>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Company / Organization
-                </label>
-                <input
-                  type="text"
-                  name="company"
-                  value={form.company}
-                  onChange={handleChange}
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-gray-400 bg-white"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Email <span className="text-umass">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={form.email}
-                  onChange={handleChange}
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-gray-400 bg-white"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Phone{" "}
-                  <span className="text-gray-400 font-normal">(optional)</span>
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={form.phone}
-                  onChange={handleChange}
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-gray-400 bg-white"
-                />
-              </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                Message <span className="text-umass">*</span>
-              </label>
-              <textarea
-                name="message"
-                required
-                rows={5}
-                value={form.message}
-                onChange={handleChange}
-                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-gray-400 bg-white resize-none"
-                placeholder="Tell us about your interest in sponsoring UMass Motorsports..."
-              />
+              {/*
+                The embed can be blocked by tracker-blocking extensions or
+                strict privacy settings, which fail silently as a blank frame.
+                Always offer a way through that does not depend on the iframe.
+              */}
+              <p className="mt-4 text-sm text-gray-400">
+                Form not loading?{" "}
+                <a
+                  href={site.sponsorForm.replace("?embedded=true", "")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-umass hover:underline underline-offset-2"
+                >
+                  Open it in a new tab
+                </a>{" "}
+                or email us at{" "}
+                <a
+                  href={`mailto:${site.email}`}
+                  className="font-medium text-umass hover:underline underline-offset-2"
+                >
+                  {site.email}
+                </a>
+                .
+              </p>
+            </>
+          ) : (
+            /* No form configured yet — never render a broken frame. */
+            <div className="rounded-lg border border-gray-200 bg-white p-6">
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Our sponsorship form is on its way. In the meantime, email us at{" "}
+                <a
+                  href={`mailto:${site.email}`}
+                  className="font-medium text-umass hover:underline underline-offset-2"
+                >
+                  {site.email}
+                </a>{" "}
+                and we&apos;ll follow up within a few days.
+              </p>
             </div>
-
-            <button
-              type="submit"
-              className="px-6 py-2.5 bg-umass text-white text-sm font-semibold rounded hover:bg-umass-dark transition-colors"
-            >
-              Send Message
-            </button>
-          </form>
+          )}
         </section>
       </div>
     </div>

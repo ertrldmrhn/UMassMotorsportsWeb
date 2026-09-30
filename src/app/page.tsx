@@ -58,7 +58,7 @@ function OutboundGlyph() {
 export default function HomePage() {
   return (
     <>
-      {/* Official Channels strip — full-width band between nav and hero */}
+      {/* Official Channels strip: full-width band between nav and hero */}
       <div className="border-t border-b border-gray-200 bg-[#EDECEA]">
         <div className="max-w-5xl mx-auto px-8 py-1.5 relative flex flex-col md:block">
           <p className="text-[10px] uppercase tracking-[0.22em] text-gray-400 font-medium mb-2 text-center md:text-left md:mb-0 md:absolute md:left-8 md:top-1/2 md:-translate-y-1/2">
@@ -66,7 +66,7 @@ export default function HomePage() {
           </p>
           {/*
             On a mouse these links reveal themselves on hover. Touch devices
-            never fire hover, so there they'd just be grey text — the `touch:`
+            never fire hover, so there they'd just be grey text. The `touch:`
             variant promotes the hover cue to the resting state instead: a red
             accent tick (the same one the event cards and countdown use), a
             full-strength icon, and an outbound ↗. `active:` adds press

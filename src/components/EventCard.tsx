@@ -51,11 +51,19 @@ export default function EventCard({ event, past = false }: EventCardProps) {
           >
             {event.title}
           </h3>
-          {past && (
-            <span className="text-[11px] font-medium text-gray-400 border border-gray-200 rounded px-2 py-0.5 shrink-0 uppercase tracking-wide">
-              Past
-            </span>
-          )}
+          <span className="flex items-center gap-1.5 shrink-0">
+            {/* Ties the card to the cruise sign-up prompt above the list. */}
+            {event.cruise && !past && (
+              <span className="text-[11px] font-medium text-umass border border-umass/25 bg-umass/5 rounded px-2 py-0.5 uppercase tracking-wide">
+                Cruise
+              </span>
+            )}
+            {past && (
+              <span className="text-[11px] font-medium text-gray-400 border border-gray-200 rounded px-2 py-0.5 uppercase tracking-wide">
+                Past
+              </span>
+            )}
+          </span>
         </div>
 
         <div className="flex flex-col gap-1 text-sm text-gray-400 mb-3">

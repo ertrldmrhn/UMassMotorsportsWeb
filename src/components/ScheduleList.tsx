@@ -9,7 +9,7 @@ interface ScheduleListProps {
   events: ClubEvent[];
   /**
    * Timestamp captured when the page was prerendered. Because this site is a
-   * static export, the server render happens at build time — so the first
+   * static export, the server render happens at build time, so the first
    * client render must use that same reference to avoid a hydration mismatch.
    */
   buildNow: number;

@@ -68,7 +68,7 @@ export default function AboutPage() {
               {/*
                 Photo. The files in public/eboard are pre-cropped to 3:2 around
                 each member and their car, so the box is pinned to that same
-                aspect — a fixed pixel height would change the box ratio per
+                aspect. A fixed pixel height would change the box ratio per
                 breakpoint and re-crop those framings. object-cover is then
                 effectively a no-op and nothing gets clipped at any width.
               */}

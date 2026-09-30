@@ -8,7 +8,7 @@ export default function SponsorsPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
 
-      {/* Banner — TODO: Add a club photo to /public/images/sponsors-banner.jpg and uncomment the Image below */}
+      {/* Banner. TODO: Add a club photo to /public/images/sponsors-banner.jpg and uncomment the Image below */}
       <div className="relative rounded-2xl overflow-hidden h-52 md:h-64 mb-12 bg-charcoal">
         {/* <Image src="/images/sponsors-banner.jpg" alt="UMass Motorsports" fill className="object-cover" /> */}
         <div
@@ -91,7 +91,7 @@ export default function SponsorsPage() {
           </div>
         </section>
 
-        {/* Contact form — hosted by Google Forms, embedded here */}
+        {/* Contact form, hosted by Google Forms, embedded here */}
         <section>
           <h2 className="text-xl font-bold text-gray-900 mb-1">Get in touch</h2>
           <p className="text-sm text-gray-400 mb-6">
@@ -138,7 +138,7 @@ export default function SponsorsPage() {
               </p>
             </>
           ) : (
-            /* No form configured yet — never render a broken frame. */
+            /* No form configured yet, so never render a broken frame. */
             <div className="rounded-lg border border-gray-200 bg-white p-6">
               <p className="text-sm text-gray-500 leading-relaxed">
                 Our sponsorship form is on its way. In the meantime, email us at{" "}

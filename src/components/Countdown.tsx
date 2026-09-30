@@ -78,7 +78,7 @@ export default function Countdown({ event }: { event: ClubEvent }) {
       className="relative overflow-hidden bg-black/55 border border-white/[0.13]"
       style={{ borderRadius: "2px" }}
     >
-      {/* Red accent line — top edge only */}
+      {/* Red accent line, top edge only */}
       <div className="absolute top-0 inset-x-0 h-[2px] bg-[#c1272d]" />
 
       {/* Header row */}

@@ -2,6 +2,7 @@ import { Info } from "lucide-react";
 import { events } from "@/data/events";
 import { site } from "@/lib/site";
 import ScheduleList from "@/components/ScheduleList";
+import CruiseSignup from "@/components/CruiseSignup";
 
 export const metadata = {
   title: "Schedule | UMass Motorsports Club",
@@ -39,6 +40,15 @@ export default function SchedulePage() {
           </a>{" "}
           for the latest updates.
         </p>
+      </div>
+
+      {/*
+        Cruise sign-up sits with the schedule rather than in the header: the
+        form asks about several cruises at once, so it belongs on the page
+        where they're all visible and someone is deciding which to attend.
+      */}
+      <div className="mb-10 -mt-6">
+        <CruiseSignup />
       </div>
 
       {/*

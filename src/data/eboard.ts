@@ -3,7 +3,7 @@
 //        Place member photos in the public/eboard/ folder.
 //
 //        Crop photos to 3:2 before adding them, framed so the member AND their
-//        car are both in shot — the card renders a 3:2 box, so anything else
+//        car are both in shot. The card renders a 3:2 box, so anything else
 //        gets cropped by the browser and heads tend to lose out. ~900x600 keeps
 //        it sharp on retina without shipping megabytes. Filenames are
 //        case-sensitive in production, so match the path exactly.
@@ -11,9 +11,9 @@
 export interface Member {
   name: string;
   role: string;
-  image?: string;   // "/eboard/jane.jpg" — pre-cropped to 3:2, see note above
+  image?: string;   // "/eboard/jane.jpg", pre-cropped to 3:2, see note above
   major?: string;   // "Mechanical Engineering"
-  car?: string;     // "2003 Subaru WRX" — optional fun detail
+  car?: string;     // "2003 Subaru WRX", optional fun detail
   bio?: string;
   email?: string;
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Calendar, Clock, MapPin } from "lucide-react";
 import Countdown from "@/components/Countdown";
+import CruiseSignup from "@/components/CruiseSignup";
 import { parseEventTime, getEventEnd } from "@/lib/eventTime";
 import type { ClubEvent } from "@/data/events";
 
@@ -12,7 +13,7 @@ interface HomeEventsProps {
   events: ClubEvent[];
   /**
    * Timestamp captured when the page was prerendered. This site is a static
-   * export, so the server render happens at build time — the first client
+   * export, so the server render happens at build time, so the first client
    * render must use that same reference to avoid a hydration mismatch.
    */
   buildNow: number;
@@ -213,6 +214,16 @@ export default function HomeEvents({ events, buildNow }: HomeEventsProps) {
               View Full Schedule →
             </Link>
           </div>
+
+          {/*
+            Only prompt when a cruise is actually coming up. A permanent
+            link here would read as wallpaper and get ignored.
+          */}
+          {[featured, ...preview].some((e) => e?.cruise) && (
+            <div className="-mt-1 mb-3">
+              <CruiseSignup tone="inline" />
+            </div>
+          )}
 
           {/* Cards */}
           <div className="flex flex-col md:flex-row gap-3">

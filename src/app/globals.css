@@ -10,7 +10,7 @@
 
 /*
   Touch devices never fire :hover, so any affordance that only appears on hover
-  is invisible to them — a link styled to reveal itself on hover just reads as
+  is invisible to them. A link styled to reveal itself on hover just reads as
   grey text. `touch:` applies a style when the pointer cannot hover, letting the
   hover cue become part of the resting state there. Keyed to pointer capability
   rather than width, so a touchscreen laptop gets it too.

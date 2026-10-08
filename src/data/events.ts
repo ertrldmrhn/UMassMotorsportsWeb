@@ -54,7 +54,7 @@ export const events: ClubEvent[] = [
     time: "9:00 AM",
     location: "Lot 44B, UMass Amherst",
     description:
-      "A cruise out to Palmer Motorsports Park to visit MassTuning's Trackfest. This is not a track day we're attending on track.",
+      "A cruise to Palmer Motorsports Park to attend MassTuning's Trackfest as spectators. This is not a club-run track day and does not include on-track driving.",
     image: "/events/Palmer-motorsports-park.jpg",
   },
   {

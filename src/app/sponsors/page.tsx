@@ -1,7 +1,10 @@
 import { site } from "@/lib/site";
 
 export const metadata = {
-  title: "Sponsors | UMass Motorsports Club",
+  title: "Sponsors",
+  description:
+    "Support UMass Motorsports Club. Sponsorship helps fund events, equipment and tournaments for the student-run car club at UMass Amherst.",
+  alternates: { canonical: "/sponsors" },
 };
 
 export default function SponsorsPage() {

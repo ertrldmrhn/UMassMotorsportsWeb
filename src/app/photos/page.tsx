@@ -4,7 +4,10 @@ import { events } from "@/data/events";
 import { site } from "@/lib/site";
 
 export const metadata = {
-  title: "Photos | UMass Motorsports Club",
+  title: "Photos",
+  description:
+    "Photos from UMass Motorsports Club events: cruises, meets and car shows around UMass Amherst and western Massachusetts.",
+  alternates: { canonical: "/photos" },
 };
 
 function formatShortDate(dateStr: string): string {

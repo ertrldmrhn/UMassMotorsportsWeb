@@ -3,7 +3,10 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { site } from "@/lib/site";
 
 export const metadata = {
-  title: "Forms | UMass Motorsports Club",
+  title: "Forms",
+  description:
+    "Sign-ups and enquiries for UMass Motorsports Club, including cruise attendance and sponsorship.",
+  alternates: { canonical: "/forms" },
 };
 
 interface FormLink {

@@ -1,5 +1,20 @@
 export const site = {
   name: "UMass Motorsports Club",
+
+  /**
+   * Canonical origin, no trailing slash. Used for the sitemap, robots.txt,
+   * canonical URLs and social preview images, all of which need absolute URLs.
+   *
+   * Pick ONE hostname and stick to it. The site answers on both
+   * umassmotorsports.com and www.umassmotorsports.com with identical content,
+   * which search engines read as two competing copies; the canonical tags
+   * built from this value are what tell them which one counts.
+   *
+   * www is the public face, so the Cloudflare redirect rule sends the apex
+   * here. If that rule is ever flipped, flip this at the same time: a
+   * canonical pointing away from where the 301 lands reintroduces the split.
+   */
+  url: "https://www.umassmotorsports.com",
   email: "motorsports-rso@umass.edu",
   instagram: "https://instagram.com/umassmoto",
   discord: "https://discord.gg/XheXZCv7Jb",

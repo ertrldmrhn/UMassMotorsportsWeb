@@ -4,7 +4,10 @@ import { eboard } from "@/data/eboard";
 import { site } from "@/lib/site";
 
 export const metadata = {
-  title: "About Us | UMass Motorsports Club",
+  title: "About Us",
+  description:
+    "UMass Motorsports Club has been the student-run car club at UMass Amherst since 1996. Meet the executive board and learn how to join. Open to all students.",
+  alternates: { canonical: "/about" },
 };
 
 function Initials({ name }: { name: string }) {

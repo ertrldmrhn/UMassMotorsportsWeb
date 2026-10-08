@@ -5,7 +5,10 @@ import ScheduleList from "@/components/ScheduleList";
 import CruiseSignup from "@/components/CruiseSignup";
 
 export const metadata = {
-  title: "Schedule | UMass Motorsports Club",
+  title: "Schedule",
+  description:
+    "Full event schedule for UMass Motorsports Club. Weekly meets, cruises through the Berkshires and Mohawk Trail, car shows and track visits at UMass Amherst.",
+  alternates: { canonical: "/schedule" },
 };
 
 export default function SchedulePage() {

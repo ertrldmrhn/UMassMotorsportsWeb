@@ -174,13 +174,21 @@ export default function HomeEvents({ events, buildNow }: HomeEventsProps) {
                 <Countdown event={featured} />
               </div>
 
-              <div className="mt-7 flex justify-center md:justify-start">
+              <div className="mt-7 flex flex-wrap items-center justify-center md:justify-start gap-3">
                 <Link
                   href="/schedule"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 text-sm font-semibold rounded hover:bg-gray-100 transition-colors"
+                  /* transparent border matches the outlined sibling's height */
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 text-sm font-semibold rounded border border-transparent hover:bg-gray-100 transition-colors"
                 >
                   View Full Schedule
                 </Link>
+                {/*
+                  Only when a cruise is actually coming up, so the hero does
+                  not carry a dead call to action through the off weeks.
+                */}
+                {[featured, ...preview].some((e) => e?.cruise) && (
+                  <CruiseSignup tone="hero" />
+                )}
               </div>
             </div>
           </div>
@@ -214,16 +222,6 @@ export default function HomeEvents({ events, buildNow }: HomeEventsProps) {
               View Full Schedule →
             </Link>
           </div>
-
-          {/*
-            Only prompt when a cruise is actually coming up. A permanent
-            link here would read as wallpaper and get ignored.
-          */}
-          {[featured, ...preview].some((e) => e?.cruise) && (
-            <div className="-mt-1 mb-3">
-              <CruiseSignup tone="inline" />
-            </div>
-          )}
 
           {/* Cards */}
           <div className="flex flex-col md:flex-row gap-3">

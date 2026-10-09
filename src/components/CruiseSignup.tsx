@@ -5,34 +5,35 @@ import { site } from "@/lib/site";
  * this needs to be findable without shouting over the rest of the page.
  *
  * `tone="panel"` is the schedule's version, sitting with the other notices.
- * `tone="inline"` is the quieter homepage version, shown only when a cruise is
- * actually among the next few events.
+ * `tone="hero"` is the homepage button, beside "View Full Schedule", shown only
+ * when a cruise is actually among the next few events.
  */
 export default function CruiseSignup({
   tone = "panel",
 }: {
-  tone?: "panel" | "inline";
+  tone?: "panel" | "hero";
 }) {
   if (!site.cruiseForm) return null;
 
-  if (tone === "inline") {
+  /*
+    Hero sits on a dark photo beside the solid white "View Full Schedule".
+    Outlined rather than filled so the two read as primary and secondary
+    instead of competing for the same emphasis.
+  */
+  if (tone === "hero") {
     return (
       <a
         href={site.cruiseForm}
         target="_blank"
         rel="noopener noreferrer"
-        className="group inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-umass transition-colors
-                   touch:text-gray-600"
+        className="group inline-flex items-center gap-2 px-5 py-2.5 rounded border border-white/35 text-white text-sm font-semibold hover:bg-white/10 hover:border-white/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
       >
-        <CruiseDot />
-        <span className="group-hover:underline underline-offset-2 touch:underline">
-          Sign up for cruise attendance
-        </span>
+        Cruise sign-up
         <span
           aria-hidden="true"
-          className="transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
+          className="text-white/70 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
         >
-          →
+          ↗
         </span>
       </a>
     );

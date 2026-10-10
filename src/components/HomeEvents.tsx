@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Calendar, Clock, MapPin } from "lucide-react";
 import Countdown from "@/components/Countdown";
 import CruiseSignup from "@/components/CruiseSignup";
+import EventLocation from "@/components/EventLocation";
 import { parseEventTime, getEventEnd } from "@/lib/eventTime";
 import type { ClubEvent } from "@/data/events";
 
@@ -160,7 +161,7 @@ export default function HomeEvents({ events, buildNow }: HomeEventsProps) {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <MapPin size={13} className="text-red-400 shrink-0" />
-                  {featured.location}
+                  <EventLocation location={featured.location} tone="hero" />
                 </span>
               </div>
 

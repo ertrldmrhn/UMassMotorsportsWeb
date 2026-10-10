@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { Mail } from "lucide-react";
 import { eboard } from "@/data/eboard";
-import { site } from "@/lib/site";
+import { site, meetSpotMapUrl } from "@/lib/site";
+import ClubFaq from "@/components/ClubFaq";
 
 export const metadata = {
   title: "About Us",
@@ -36,14 +37,34 @@ export default function AboutPage() {
         </p>
         <div className="prose prose-sm text-gray-600 max-w-2xl space-y-3">
           <p>
-            UMass Motorsports is a student organization at the University of Massachusetts
-            Amherst dedicated to all things automotive. Founded in 1996, we bring together
-            students who share a passion for cars.
+            UMass Motorsports is the student-run car club at the University of
+            Massachusetts Amherst. Founded in 1996, we have been running
+            automotive events in the Pioneer Valley and across western
+            Massachusetts for nearly three decades, and we are one of the
+            longest-running student car clubs in New England.
           </p>
           <p>
-            We host cruises, meetups, car shows, and community build days throughout
-            the academic year. Membership is open to all UMass students regardless of
-            car ownership. If you&apos;re into cars, you&apos;re welcome here.
+            We run events most weeks of the semester: weekly meets on campus,
+            scenic cruises through western Massachusetts, car shows, photography
+            nights, karting tournaments and visits to motorsport events around
+            the region.
+          </p>
+          <p>
+            Membership is open to every UMass Amherst student and you do not
+            need to own a car to join. If you are into cars, you are welcome
+            here.
+          </p>
+          <p>
+            We meet at{" "}
+            <a
+              href={meetSpotMapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-umass hover:underline underline-offset-2"
+            >
+              {site.meetSpot.name}
+            </a>
+            . Most events start there, including cruises that head out from campus.
           </p>
           <p>
             Questions? Reach us at{" "}
@@ -129,6 +150,8 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+
+      <ClubFaq />
     </div>
   );
 }

@@ -54,4 +54,23 @@ export const site = {
    * event. Shown wherever a cruise appears, see `cruise` in data/events.ts.
    */
   cruiseForm: "https://forms.gle/ctCjv5MrYAyvVyDw8",
+
+  /**
+   * Where the club meets. `name` must match an event's `location` exactly for
+   * that event to render a map link, so events elsewhere (or "TBD") stay as
+   * plain text.
+   *
+   * The map URL is built from the coordinates rather than stored as a
+   * maps.app.goo.gl short link: coordinates are self-describing in the repo,
+   * survive without a redirect hop, and can be re-pointed at any map provider.
+   * https://maps.app.goo.gl/RaXHTbvmSHFpzanE6 resolves to the same spot.
+   */
+  meetSpot: {
+    name: "Lot 44B, UMass Amherst",
+    lat: 42.39958561228448,
+    lng: -72.52582424621491,
+  },
 };
+
+/** Google Maps pin for the meet spot. Directions are one tap from there. */
+export const meetSpotMapUrl = `https://www.google.com/maps/search/?api=1&query=${site.meetSpot.lat},${site.meetSpot.lng}`;

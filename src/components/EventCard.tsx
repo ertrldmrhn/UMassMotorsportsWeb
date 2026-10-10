@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Calendar, Clock, MapPin } from "lucide-react";
 import type { ClubEvent } from "@/data/events";
+import EventLocation from "@/components/EventLocation";
 
 interface EventCardProps {
   event: ClubEvent;
@@ -77,7 +78,7 @@ export default function EventCard({ event, past = false }: EventCardProps) {
           </span>
           <span className="flex items-center gap-2">
             <MapPin size={13} className="text-umass shrink-0" />
-            {event.location}
+            <EventLocation location={event.location} />
           </span>
         </div>
 

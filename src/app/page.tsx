@@ -60,8 +60,15 @@ export default function HomePage() {
     <>
       {/* Official Channels strip: full-width band between nav and hero */}
       <div className="border-t border-b border-gray-200 bg-[#EDECEA]">
-        <div className="max-w-5xl mx-auto px-8 py-1.5 relative flex flex-col md:block">
-          <p className="text-[10px] uppercase tracking-[0.22em] text-gray-400 font-medium mb-2 text-center md:text-left md:mb-0 md:absolute md:left-8 md:top-1/2 md:-translate-y-1/2">
+        <div className="max-w-5xl mx-auto px-8 py-1.5 relative flex flex-col lg:block">
+          {/*
+            The label sits left and the links sit centred in the band, and the
+            two must not fight each other for that centre. From lg up the label
+            is lifted out of flow so the links centre on the band itself rather
+            than on the space the label leaves behind. Below lg there isn't room
+            for both on one row, so the label stacks above the centred links.
+          */}
+          <p className="text-[10px] uppercase tracking-[0.22em] text-gray-400 font-medium mb-2 text-left lg:mb-0 lg:absolute lg:left-8 lg:top-1/2 lg:-translate-y-1/2">
             Official Channels
           </p>
           {/*
@@ -74,7 +81,7 @@ export default function HomePage() {
           */}
           <nav
             aria-label="Official channels"
-            className="flex flex-wrap justify-center gap-x-6 gap-y-1 touch:gap-x-2.5 touch:gap-y-2 md:py-0.5"
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 touch:gap-x-2.5 touch:gap-y-2 lg:py-0.5"
           >
 
             {/* Instagram */}
@@ -119,12 +126,19 @@ export default function HomePage() {
               className="group inline-flex items-center py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-umass/40
                          touch:gap-1.5 touch:py-1.5 touch:pl-2 touch:pr-2.5 touch:border-l-2 touch:border-umass touch:bg-white/70 touch:rounded-r-sm touch:active:bg-white touch:active:border-umass-dark"
             >
+              {/*
+                width/height are the PNG's real pixel dimensions. They only set
+                the aspect ratio here (images are unoptimized for the static
+                export, so the full-resolution file is what ships), but getting
+                them wrong squeezes the logo. Resting opacity stays near full:
+                at this size the washed-out version read as a broken asset.
+              */}
               <Image
                 src="/campus_pulse.png"
                 alt="Campus Pulse"
-                width={800}
-                height={194}
-                className="h-8 w-auto object-contain opacity-60 group-hover:opacity-90 touch:opacity-100 transition-opacity"
+                width={2609}
+                height={635}
+                className="h-10 lg:h-12 w-auto object-contain opacity-90 group-hover:opacity-100 touch:opacity-100 transition-opacity"
               />
               <OutboundGlyph />
             </a>

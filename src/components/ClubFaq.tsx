@@ -31,7 +31,7 @@ export const faqs: { q: string; a: string }[] = [
   },
   {
     q: "What kind of events does the club run?",
-    a: "Events run most weeks of the semester and include campus meets, scenic cruises through western Massachusetts, car photography nights, karting tournaments at Pioneer Valley Karting, and seasonal events such as Trunk or Treat and Carsgiving Day.",
+    a: "Events run most weeks of the semester and include campus meets, scenic cruises through western Massachusetts, car photography nights, karting tournaments at Pioneer Valley Indoor Karting, and seasonal events such as Trunk or Treat and Carsgiving Day.",
   },
   {
     q: "What cruises does the club run?",
@@ -43,7 +43,7 @@ export const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Does the club do karting?",
-    a: "Yes. The club runs its own karting tournament at Pioneer Valley Karting, open to members regardless of experience.",
+    a: "Yes. The club runs its own karting tournament at Pioneer Valley Indoor Karting, open to members regardless of experience.",
   },
   {
     q: "Are there other car clubs at UMass Amherst?",

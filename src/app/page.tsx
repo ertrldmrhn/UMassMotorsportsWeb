@@ -3,6 +3,7 @@ import Image from "next/image";
 import { events } from "@/data/events";
 import { site } from "@/lib/site";
 import HomeEvents from "@/components/HomeEvents";
+import RegistrationBanner from "@/components/RegistrationBanner";
 
 function InstagramIcon() {
   return (
@@ -58,6 +59,14 @@ function OutboundGlyph() {
 export default function HomePage() {
   return (
     <>
+      {/*
+        Registration sits above everything else on the page, so it is the first
+        thing in view under the nav. Driven by the event's `registration` field,
+        so it appears when sign-ups are open and removes itself once the event
+        has passed.
+      */}
+      <RegistrationBanner events={events} buildNow={Date.now()} />
+
       {/* Official Channels strip: full-width band between nav and hero */}
       <div className="border-t border-b border-gray-200 bg-[#EDECEA]">
         <div className="max-w-5xl mx-auto px-8 py-1.5 relative flex flex-col md:block">

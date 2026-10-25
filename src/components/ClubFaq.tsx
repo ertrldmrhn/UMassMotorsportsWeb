@@ -18,6 +18,10 @@ export const faqs: { q: string; a: string }[] = [
     a: "UMass Motorsports is the student-run car club at the University of Massachusetts Amherst. Founded in 1996, it organises weekly meets, scenic cruises, car shows and motorsport outings for students interested in cars.",
   },
   {
+    q: "How big is UMass Motorsports Club?",
+    a: "The club's Discord community has over 700 members. Its annual car show drew more than 1,500 attendees and over 350 cars last year, making it one of the largest student-run car events in western Massachusetts.",
+  },
+  {
     q: "Who can join UMass Motorsports Club?",
     a: "Any student at UMass Amherst can join, regardless of year or major. There is no application or tryout; you can simply turn up to a meet.",
   },

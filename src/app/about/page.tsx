@@ -47,7 +47,9 @@ export default function AboutPage() {
             We run events most weeks of the semester: weekly meets on campus,
             scenic cruises through western Massachusetts, car shows, photography
             nights, karting tournaments and visits to motorsport events around
-            the region.
+            the region. Our annual car show drew more than 1,500 attendees and
+            over 350 cars last year, and our Discord community has grown past
+            700 members.
           </p>
           <p>
             Membership is open to every UMass Amherst student and you do not

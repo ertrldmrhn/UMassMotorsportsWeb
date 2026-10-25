@@ -6,6 +6,12 @@ import EventLocation from "@/components/EventLocation";
 interface EventCardProps {
   event: ClubEvent;
   past?: boolean;
+  /**
+   * Whether sign-ups are still open. Decided by the caller rather than here:
+   * this is a server component, so in a static export its clock would freeze
+   * at build time and the Register button would never retire.
+   */
+  registrationOpen?: boolean;
 }
 
 function formatDate(dateStr: string): string {
@@ -18,7 +24,11 @@ function formatDate(dateStr: string): string {
   });
 }
 
-export default function EventCard({ event, past = false }: EventCardProps) {
+export default function EventCard({
+  event,
+  past = false,
+  registrationOpen = false,
+}: EventCardProps) {
   return (
     <div
       className={`flex flex-col sm:flex-row overflow-hidden rounded-lg border bg-white transition-colors ${
@@ -86,6 +96,24 @@ export default function EventCard({ event, past = false }: EventCardProps) {
           <p className="text-sm text-gray-500 leading-relaxed">
             {event.description}
           </p>
+        )}
+
+        {/* Sign-ups are also reachable from here, not just the homepage banner. */}
+        {event.registration && registrationOpen && !past && (
+          <a
+            href={event.registration}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-[#c1272d] text-white text-sm font-bold rounded-sm hover:bg-[#a81f25] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-umass/40"
+          >
+            Register
+            <span
+              aria-hidden="true"
+              className="inline-block transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
+            >
+              →
+            </span>
+          </a>
         )}
 
         {event.link && (

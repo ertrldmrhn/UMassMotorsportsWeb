@@ -7,7 +7,11 @@ import { Calendar, Clock, MapPin } from "lucide-react";
 import Countdown from "@/components/Countdown";
 import CruiseSignup from "@/components/CruiseSignup";
 import EventLocation from "@/components/EventLocation";
-import { parseEventTime, getEventEnd } from "@/lib/eventTime";
+import {
+  parseEventTime,
+  getEventEnd,
+  isRegistrationOpen,
+} from "@/lib/eventTime";
 import type { ClubEvent } from "@/data/events";
 
 interface HomeEventsProps {
@@ -184,11 +188,37 @@ export default function HomeEvents({ events, buildNow }: HomeEventsProps) {
                   View Full Schedule
                 </Link>
                 {/*
-                  Only when a cruise is actually coming up, so the hero does
-                  not carry a dead call to action through the off weeks.
+                  One secondary action, whichever matters more right now.
+
+                  When the featured event takes sign-ups, registering for it
+                  beats a general cruise prompt, so Register takes the slot.
+                  That swap is driven by the event's `registration` field, so
+                  it reverts on its own once the event passes rather than
+                  needing to be undone by hand.
+
+                  Otherwise fall back to the cruise prompt, and only when a
+                  cruise is actually coming up, so the hero does not carry a
+                  dead call to action through the off weeks.
                 */}
-                {[featured, ...preview].some((e) => e?.cruise) && (
-                  <CruiseSignup tone="hero" />
+                {isRegistrationOpen(featured, reference) ? (
+                  <a
+                    href={featured.registration}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 px-5 py-2.5 bg-[#c1272d] text-white text-sm font-bold rounded border border-transparent hover:bg-[#a81f25] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  >
+                    Register
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
+                    >
+                      →
+                    </span>
+                  </a>
+                ) : (
+                  [featured, ...preview].some((e) => e?.cruise) && (
+                    <CruiseSignup tone="hero" />
+                  )
                 )}
               </div>
             </div>

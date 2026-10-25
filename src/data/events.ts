@@ -19,6 +19,23 @@ export interface ClubEvent {
    * (e.g. "Trip to Palmer") can't silently drop it from the list.
    */
   cruise?: boolean;
+  /**
+   * Sign-up link for events that need one. Setting this puts a registration
+   * banner at the very top of the homepage, above everything else, and a
+   * Register button on the event's schedule card.
+   *
+   * The banner is tied to the event rather than hardcoded, so it appears when
+   * the event is next up and disappears on its own once the event ends. If two
+   * upcoming events both have one, the soonest wins.
+   */
+  registration?: string;
+  /**
+   * Date sign-ups close, "YYYY-MM-DD". Read as the end of that day, so a
+   * deadline of "2026-11-04" keeps registration open all of the 4th.
+   *
+   * Without this, sign-ups are treated as open until the event itself ends.
+   */
+  registrationCloses?: string;
 }
 
 export const events: ClubEvent[] = [
@@ -75,19 +92,15 @@ export const events: ClubEvent[] = [
     image: "/events/Mohawk_Trail.JPG",
   },
   {
-    title: "Trunk or Treat",
-    date: "2026-10-30",
-    time: "4:00 PM",
-    location: "TBD",
-    description: "",
-  },
-  {
     title: "PVIK Karting Tournament",
     date: "2026-11-08",
     time: "6:00 PM",
     location: "Pioneer Valley Indoor Karting",
-    description: "",
+    description:
+      "Our go-kart tournament at Pioneer Valley Indoor Karting. Registration is required to race, and spots are limited by how many karts are on track.",
     image: "/events/pvik.jpg",
+    registration: "https://forms.gle/UT3j3aP91StS3cvQ8",
+    registrationCloses: "2026-11-04",
   },
   {
     title: "Berkshire Trail Cruise",

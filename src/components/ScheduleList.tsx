@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from "react";
 import EventCard from "@/components/EventCard";
-import { parseEventTime, getEventEnd } from "@/lib/eventTime";
+import {
+  parseEventTime,
+  getEventEnd,
+  isRegistrationOpen,
+} from "@/lib/eventTime";
 import type { ClubEvent } from "@/data/events";
 
 interface ScheduleListProps {
@@ -47,7 +51,11 @@ export default function ScheduleList({ events, buildNow }: ScheduleListProps) {
           </p>
           <div className="space-y-4">
             {upcoming.map((event) => (
-              <EventCard key={event.date + event.title} event={event} />
+              <EventCard
+                key={event.date + event.title}
+                event={event}
+                registrationOpen={isRegistrationOpen(event, reference)}
+              />
             ))}
           </div>
         </section>

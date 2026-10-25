@@ -20,26 +20,23 @@ function formatShortDate(dateStr: string): string {
 }
 
 /**
- * Google Photos pinwheel. Used to mark the album link as a Google Photos
- * destination, so it's obvious at a glance where the link goes before anyone
- * reads the label.
+ * Official Google Photos pinwheel, marking the album link so the destination
+ * is recognisable before the label is read.
+ *
+ * The source asset is the full lockup on a 3840x2160 canvas; it's cropped to
+ * the symbol alone because the card's own heading already says "Google
+ * Photos", and the wordmark would repeat it.
  */
 function GooglePhotosIcon({ size = 34 }: { size?: number }) {
-  // One blade, rotated four times around the centre.
-  const blade = "M7 12V5.5a2.5 2.5 0 0 1 5 0V12H7z";
   return (
-    <svg
+    <Image
+      src="/Google-Photos-Symbol.png"
+      alt=""
+      aria-hidden="true"
       width={size}
       height={size}
-      viewBox="0 0 24 24"
-      aria-hidden="true"
       className="shrink-0"
-    >
-      <path d={blade} fill="#4285F4" />
-      <path d={blade} fill="#EA4335" transform="rotate(90 12 12)" />
-      <path d={blade} fill="#FBBC04" transform="rotate(180 12 12)" />
-      <path d={blade} fill="#34A853" transform="rotate(270 12 12)" />
-    </svg>
+    />
   );
 }
 

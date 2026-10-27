@@ -36,6 +36,15 @@ export interface ClubEvent {
    * Without this, sign-ups are treated as open until the event itself ends.
    */
   registrationCloses?: string;
+  /**
+   * Set once the event is full. The sign-up link stays live but becomes a
+   * waitlist: the banner, hero and schedule card all relabel themselves, so
+   * nobody fills in a form thinking they have a confirmed place.
+   *
+   * A flag rather than reworded copy, so it is one line to flip back if
+   * spots open up again.
+   */
+  registrationFull?: boolean;
 }
 
 export const events: ClubEvent[] = [
@@ -97,10 +106,11 @@ export const events: ClubEvent[] = [
     time: "6:00 PM",
     location: "Pioneer Valley Indoor Karting",
     description:
-      "Our go-kart tournament at Pioneer Valley Indoor Karting. Registration is required to race, and is capped at 60 students.",
+      "Our go-kart tournament at Pioneer Valley Indoor Karting. All 60 places are taken. Join the waitlist and we'll be in touch if one opens up.",
     image: "/events/pvik.jpg",
     registration: "https://forms.gle/UT3j3aP91StS3cvQ8",
     registrationCloses: "2026-11-04",
+    registrationFull: true,
   },
   {
     title: "Berkshire Trail Cruise",

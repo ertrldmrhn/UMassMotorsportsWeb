@@ -63,6 +63,10 @@ export default function RegistrationBanner({
 
   if (!event) return null;
 
+  // Full events keep the link live but relabel it, so nobody fills in the form
+  // believing they have a confirmed place.
+  const full = event.registrationFull === true;
+
   // A deadline nobody can see creates no urgency, so state it plainly.
   const closes = event.registrationCloses
     ? (getRegistrationClose(event) as Date).toLocaleDateString("en-US", {
@@ -89,13 +93,25 @@ export default function RegistrationBanner({
 
       <div className="max-w-5xl mx-auto px-4 py-4 md:py-5 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
         <div className="min-w-0 flex-1 text-center md:text-left">
+          {/*
+            Yellow once the event is full, red while places remain. Borrowed
+            from flag meaning: yellow is caution rather than stop, which is
+            what a waitlist is. It also stops the status reading as a plain
+            "sign up here" at a glance.
+          */}
           <p className="flex items-center justify-center md:justify-start gap-2 mb-1.5">
             <span
               aria-hidden="true"
-              className="w-1.5 h-1.5 rounded-full bg-[#c1272d] animate-pulse motion-reduce:animate-none"
+              className={`w-1.5 h-1.5 rounded-full animate-pulse motion-reduce:animate-none ${
+                full ? "bg-[#f0b429]" : "bg-[#c1272d]"
+              }`}
             />
-            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-[#e8686d]">
-              Registration Open
+            <span
+              className={`font-mono text-[10px] font-bold uppercase tracking-[0.28em] ${
+                full ? "text-[#f0b429]" : "text-[#e8686d]"
+              }`}
+            >
+              {full ? "Waitlist Open" : "Registration Open"}
             </span>
           </p>
 
@@ -106,8 +122,12 @@ export default function RegistrationBanner({
             {formatWhen(event)} · {event.location}
           </p>
           {closes && (
-            <p className="text-sm font-semibold text-[#e8686d] mt-1.5">
-              Registration closes {closes}
+            <p
+              className={`text-sm font-semibold mt-1.5 ${
+                full ? "text-[#f0b429]" : "text-[#e8686d]"
+              }`}
+            >
+              {full ? "Waitlist" : "Registration"} closes {closes}
             </p>
           )}
         </div>
@@ -116,9 +136,13 @@ export default function RegistrationBanner({
           href={event.registration}
           target="_blank"
           rel="noopener noreferrer"
-          className="group shrink-0 inline-flex items-center justify-center gap-2 w-full md:w-auto px-7 py-3.5 bg-[#c1272d] text-white text-base font-bold rounded-sm hover:bg-[#a81f25] active:bg-[#8e1a1f] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
+          className={`group shrink-0 inline-flex items-center justify-center gap-2 w-full md:w-auto px-7 py-3.5 text-base font-bold rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal ${
+            full
+              ? "bg-[#f0b429] text-charcoal hover:bg-[#d99e1c] active:bg-[#c28c15]"
+              : "bg-[#c1272d] text-white hover:bg-[#a81f25] active:bg-[#8e1a1f]"
+          }`}
         >
-          Register
+          {full ? "Join waitlist" : "Register"}
           <span
             aria-hidden="true"
             className="inline-block transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"

@@ -97,7 +97,7 @@ export const events: ClubEvent[] = [
     time: "6:00 PM",
     location: "Pioneer Valley Indoor Karting",
     description:
-      "Our go-kart tournament at Pioneer Valley Indoor Karting. Registration is required to race, and spots are limited by how many karts are on track.",
+      "Our go-kart tournament at Pioneer Valley Indoor Karting. Registration is required to race, and is capped at 60 students.",
     image: "/events/pvik.jpg",
     registration: "https://forms.gle/UT3j3aP91StS3cvQ8",
     registrationCloses: "2026-11-04",

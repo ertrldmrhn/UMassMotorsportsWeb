@@ -206,10 +206,10 @@ export default function HomeEvents({ events, buildNow }: HomeEventsProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold rounded border border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 ${
-                      featured.registrationFull ? "bg-[#f0b429] text-charcoal hover:bg-[#d99e1c]" : "bg-[#c1272d] text-white hover:bg-[#a81f25]"
+                      featured.registrationStatus === "waitlist" ? "bg-[#f0b429] text-charcoal hover:bg-[#d99e1c]" : "bg-[#c1272d] text-white hover:bg-[#a81f25]"
                     }`}
                   >
-                    {featured.registrationFull ? "Join waitlist" : "Register"}
+                    {featured.registrationStatus === "waitlist" ? "Join waitlist" : "Register"}
                     <span
                       aria-hidden="true"
                       className="transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"

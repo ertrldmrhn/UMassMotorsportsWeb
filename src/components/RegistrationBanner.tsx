@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import {
   parseEventTime,
   getRegistrationClose,
-  isRegistrationOpen,
+  getRegistrationState,
 } from "@/lib/eventTime";
 import type { ClubEvent } from "@/data/events";
 
@@ -53,8 +53,10 @@ export default function RegistrationBanner({
 
   const reference = now ?? buildNow;
 
+  // Closed events still earn the banner: "it is full" is the answer people
+  // are coming to the site for, and saying it loudly prevents the asking.
   const event = events
-    .filter((e) => isRegistrationOpen(e, reference))
+    .filter((e) => getRegistrationState(e, reference) !== "none")
     .sort(
       (a, b) =>
         parseEventTime(a.date, a.time).getTime() -
@@ -63,9 +65,10 @@ export default function RegistrationBanner({
 
   if (!event) return null;
 
-  // Full events keep the link live but relabel it, so nobody fills in the form
-  // believing they have a confirmed place.
-  const full = event.registrationFull === true;
+  const state = getRegistrationState(event, reference);
+  const full = state === "waitlist";
+  const closed = state === "closed";
+  const cap = event.capacity;
 
   // A deadline nobody can see creates no urgency, so state it plainly.
   const closes = event.registrationCloses
@@ -102,16 +105,28 @@ export default function RegistrationBanner({
           <p className="flex items-center justify-center md:justify-start gap-2 mb-1.5">
             <span
               aria-hidden="true"
-              className={`w-1.5 h-1.5 rounded-full animate-pulse motion-reduce:animate-none ${
-                full ? "bg-[#f0b429]" : "bg-[#c1272d]"
+              className={`w-1.5 h-1.5 rounded-full ${
+                closed
+                  ? "bg-white/40"
+                  : `animate-pulse motion-reduce:animate-none ${
+                      full ? "bg-[#f0b429]" : "bg-[#c1272d]"
+                    }`
               }`}
             />
             <span
               className={`font-mono text-[10px] font-bold uppercase tracking-[0.28em] ${
-                full ? "text-[#f0b429]" : "text-[#e8686d]"
+                closed
+                  ? "text-white/50"
+                  : full
+                    ? "text-[#f0b429]"
+                    : "text-[#e8686d]"
               }`}
             >
-              {full ? "Waitlist Open" : "Registration Open"}
+              {closed
+                ? "Waitlist Closed"
+                : full
+                  ? "Waitlist Open"
+                  : "Registration Open"}
             </span>
           </p>
 
@@ -121,7 +136,12 @@ export default function RegistrationBanner({
           <p className="text-sm text-white/55 mt-1">
             {formatWhen(event)} · {event.location}
           </p>
-          {closes && (
+          {closed && (
+            <p className="text-sm font-semibold text-white/70 mt-1.5">
+              At full capacity
+            </p>
+          )}
+          {closes && !closed && (
             <p
               className={`text-sm font-semibold mt-1.5 ${
                 full ? "text-[#f0b429]" : "text-[#e8686d]"
@@ -132,6 +152,25 @@ export default function RegistrationBanner({
           )}
         </div>
 
+        {closed && cap ? (
+          /*
+             No link once nothing can be accepted: a button that cannot take
+             anyone is worse than no button. The figures go in its place
+             because "60/60" answers the next question better than "full".
+          */
+          <div className="shrink-0 flex gap-3 w-full md:w-auto">
+            <CapacityStat
+              filled={cap.registered}
+              total={cap.spots}
+              label="Registered"
+            />
+            <CapacityStat
+              filled={cap.waitlisted}
+              total={cap.waitlistSpots}
+              label="Waitlist"
+            />
+          </div>
+        ) : closed ? null : (
         <a
           href={event.registration}
           target="_blank"
@@ -150,7 +189,31 @@ export default function RegistrationBanner({
             →
           </span>
         </a>
+        )}
       </div>
     </aside>
+  );
+}
+
+/** One "60 / 60" figure with its label, used when sign-ups have closed. */
+function CapacityStat({
+  filled,
+  total,
+  label,
+}: {
+  filled: number;
+  total: number;
+  label: string;
+}) {
+  return (
+    <div className="flex-1 md:flex-none md:min-w-[104px] rounded-sm border border-white/15 bg-white/[0.04] px-4 py-2.5 text-center">
+      <p className="font-mono text-lg font-bold text-white tabular-nums leading-none">
+        {filled}
+        <span className="text-white/40"> / {total}</span>
+      </p>
+      <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/40 mt-1.5">
+        {label}
+      </p>
+    </div>
   );
 }

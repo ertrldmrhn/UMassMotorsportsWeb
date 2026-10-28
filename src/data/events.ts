@@ -37,14 +37,27 @@ export interface ClubEvent {
    */
   registrationCloses?: string;
   /**
-   * Set once the event is full. The sign-up link stays live but becomes a
-   * waitlist: the banner, hero and schedule card all relabel themselves, so
-   * nobody fills in a form thinking they have a confirmed place.
+   * Where sign-ups stand. Defaults to "open".
    *
-   * A flag rather than reworded copy, so it is one line to flip back if
-   * spots open up again.
+   * "waitlist" keeps the form live but relabels every surface, so nobody
+   * fills it in believing they have a confirmed place. "closed" removes the
+   * link entirely, because a button that cannot accept anyone is worse than
+   * no button at all.
+   *
+   * One value rather than a set of booleans, so the states cannot contradict
+   * each other and changing status is a one-line edit.
    */
-  registrationFull?: boolean;
+  registrationStatus?: "open" | "waitlist" | "closed";
+  /**
+   * How full the event is. Shown once sign-ups close, where "60/60" answers
+   * the obvious next question better than the word "full" does.
+   */
+  capacity?: {
+    registered: number;
+    spots: number;
+    waitlisted: number;
+    waitlistSpots: number;
+  };
 }
 
 export const events: ClubEvent[] = [
@@ -106,11 +119,12 @@ export const events: ClubEvent[] = [
     time: "6:00 PM",
     location: "Pioneer Valley Indoor Karting",
     description:
-      "Our go-kart tournament at Pioneer Valley Indoor Karting. All 60 places are taken. Join the waitlist and we'll be in touch if one opens up.",
+      "Our go-kart tournament at Pioneer Valley Indoor Karting. Both the 60 places and the 20 waitlist spots are full, so sign-ups are closed.",
     image: "/events/pvik.jpg",
     registration: "https://forms.gle/UT3j3aP91StS3cvQ8",
     registrationCloses: "2026-11-04",
-    registrationFull: true,
+    registrationStatus: "closed",
+    capacity: { registered: 60, spots: 60, waitlisted: 20, waitlistSpots: 20 },
   },
   {
     title: "Berkshire Trail Cruise",

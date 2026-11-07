@@ -4,9 +4,18 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "umassmotorsportsweb",
   "compatibility_date": "2026-09-04",
+  // Only /api/* runs this code. Every page and image is still a free static asset.
+  "main": "./worker/index.ts",
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"],
     // Serve /about for /about/ and vice versa; 404.html handles unmatched routes.
     "not_found_handling": "404-page"
-  }
+  },
+  // Live tournament results. Free plan requires the SQLite-backed class.
+  "durable_objects": {
+    "bindings": [{ "name": "LIVE", "class_name": "LiveFeed" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["LiveFeed"] }]
 }

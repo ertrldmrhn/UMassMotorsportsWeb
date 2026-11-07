@@ -63,6 +63,17 @@ export function getRegistrationState(
   return declared;
 }
 
+/**
+ * Whether live timing should be on the homepage at `now`. Its own window, not
+ * the event's: it can open before the start and stay up after the end.
+ */
+export function isLiveTimingOn(event: ClubEvent, now: number): boolean {
+  if (!event.liveResults) return false;
+  const from = parseEventTime(event.date, event.liveFrom ?? event.time).getTime();
+  const until = event.liveUntil ? parseEventTime(event.date, event.liveUntil).getTime() : getEventEnd(event).getTime();
+  return now >= from && now < until;
+}
+
 /** Whether sign-ups can still be taken, i.e. a link is worth showing. */
 export function isRegistrationOpen(event: ClubEvent, now: number): boolean {
   const state = getRegistrationState(event, now);

@@ -11,6 +11,16 @@ export interface ClubEvent {
   location: string;
   description: string;
   link?: string;      // Optional external link for more info
+  /**
+   * Path to a live results page. The schedule card always links to it. The
+   * homepage banner and hero button switch to it between `liveFrom` and
+   * `liveUntil` on the event date.
+   */
+  liveResults?: string;
+  /** When live timing takes over the homepage, e.g. "5:00 PM". Defaults to the start time. */
+  liveFrom?: string;
+  /** When it comes down, e.g. "11:00 PM". Defaults to the event's end. */
+  liveUntil?: string;
   image?: string;     // Optional: "/events/autocross-r1.jpg"
   /**
    * Mark cruises. UMass asks for an attendee list for these, so anything
@@ -117,6 +127,10 @@ export const events: ClubEvent[] = [
     title: "PVIK Karting Tournament",
     date: "2026-11-08",
     time: "6:00 PM",
+    endTime: "10:00 PM",
+    liveResults: "/live",
+    liveFrom: "5:00 PM",
+    liveUntil: "11:00 PM",
     location: "Pioneer Valley Indoor Karting",
     description:
       "Our go-kart tournament at Pioneer Valley Indoor Karting. Both the 60 places and the 20 waitlist spots are full, so sign-ups are closed.",

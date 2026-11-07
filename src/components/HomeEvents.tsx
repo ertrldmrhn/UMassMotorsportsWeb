@@ -10,6 +10,7 @@ import EventLocation from "@/components/EventLocation";
 import {
   parseEventTime,
   getEventEnd,
+  isLiveTimingOn,
   isRegistrationOpen,
 } from "@/lib/eventTime";
 import type { ClubEvent } from "@/data/events";
@@ -200,7 +201,16 @@ export default function HomeEvents({ events, buildNow }: HomeEventsProps) {
                   cruise is actually coming up, so the hero does not carry a
                   dead call to action through the off weeks.
                 */}
-                {isRegistrationOpen(featured, reference) ? (
+                {/* Live timing takes the slot during its window (see liveFrom/liveUntil). */}
+                {isLiveTimingOn(featured, reference) ? (
+                  <Link
+                    href={featured.liveResults ?? "/live"}
+                    className="group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold rounded border border-transparent bg-[#c1272d] text-white hover:bg-[#a81f25] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" aria-hidden="true" />
+                    Live timing
+                  </Link>
+                ) : isRegistrationOpen(featured, reference) ? (
                   <a
                     href={featured.registration}
                     target="_blank"

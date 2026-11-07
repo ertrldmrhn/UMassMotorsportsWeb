@@ -106,6 +106,40 @@ public/
 
 ---
 
+## Live results (`/live`)
+
+`/live` shows live tournament results sent by the race control app. It's the one part of the site that isn't purely static:
+
+- `worker/index.ts` handles only `/api/live`. Every page and image is still served as a static file without running it, so the site stays up even if the Worker hits a limit.
+- One Durable Object, `LiveFeed`, stores the latest snapshot. The free plan supports it with the SQLite backend.
+- The race control laptop sends a new snapshot after each change, using a secret token. The page polls every 15 seconds, and only while it's visible.
+
+**One-time setup:** create a long random token. Keep it out of the repo and out of chat.
+
+```bash
+openssl rand -hex 24
+```
+
+Store it as a Worker secret, then paste the same value into race control's **Settings**.
+
+```bash
+npx wrangler secret put LIVE_TOKEN
+```
+
+You can also add it in the Cloudflare dashboard: **Workers & Pages**, then `umassmotorsportsweb`, then **Settings**, then **Variables and Secrets**. Add a secret named `LIVE_TOKEN`.
+
+**Checking it:** `https://www.umassmotorsports.com/api/live` should return JSON. It says `"live":false` until race control publishes.
+
+**Local testing:** put `LIVE_TOKEN=anything` in `.dev.vars`, which git ignores. Then run `npm run build` and `npx wrangler dev`. Point race control at `http://127.0.0.1:8787/api/live`.
+
+**Free-plan limits:**
+
+- Page views and images: free and unlimited.
+- `/api/live`: 100,000 requests a day, resetting at 7 PM Eastern in November. That's about 138 phones watching non-stop for three hours.
+- Past the limit, only the live data stops updating.
+
+The snapshot format is defined in `src/lib/liveFeed.ts`. Race control builds it in `Go-Kart-Tournament/src/domain/publicFeed.ts`, so keep the two in step. To link results from an event, set `liveResults: "/live"` in `src/data/events.ts`.
+
 ## Deploying
 
 Pushing to `main` is what ships. Cloudflare builds and deploys with:

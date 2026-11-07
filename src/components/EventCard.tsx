@@ -118,6 +118,15 @@ export default function EventCard({
           </a>
         )}
 
+        {event.liveResults && (
+          <a
+            href={event.liveResults}
+            className="mt-3 mr-4 inline-block text-sm font-semibold text-umass hover:underline"
+          >
+            {past ? "Results →" : "Live results →"}
+          </a>
+        )}
+
         {event.link && (
           <a
             href={event.link}

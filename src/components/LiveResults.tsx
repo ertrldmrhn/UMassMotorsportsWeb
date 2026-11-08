@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { Flag, Trophy } from "lucide-react";
 import {
   formatElapsed,
@@ -29,8 +29,47 @@ function Chip({ tag, className = "" }: { tag: LiveGroupTag; className?: string }
   );
 }
 
+/** False when some username in this block would not fit on its driver's line. */
+const UsernamesFit = createContext(true);
+
+/**
+ * Usernames are all-or-nothing per block: if any one would not fit beside its
+ * name, every one hides, so the layout never mixes inline and wrapped names.
+ * Each [data-fit] line is single-line and clipped, and hidden usernames keep
+ * their space, so measuring never changes the layout it measures.
+ */
+function useUsernamesFit<T extends HTMLElement>(contentKey: string) {
+  const ref = useRef<T>(null);
+  const [fits, setFits] = useState(true);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const check = () => {
+      const lines = el.querySelectorAll<HTMLElement>("[data-fit]");
+      setFits(Array.from(lines).every((line) => line.scrollWidth <= line.clientWidth + 1));
+    };
+    const observer = new ResizeObserver(check);
+    observer.observe(el);
+    void document.fonts?.ready.then(check);
+    return () => observer.disconnect();
+  }, [contentKey]);
+  return [ref, fits] as const;
+}
+
+/** A driver's track username, in gray beside their name. */
+function Username({ value, className = "text-gray-400" }: { value?: string; className?: string }) {
+  const fits = useContext(UsernamesFit);
+  if (!value) return null;
+  return <span className={`ml-1.5 whitespace-nowrap font-normal ${className} ${fits ? "" : "invisible"}`}>{value}</span>;
+}
+
+/** One driver line: name plus username, never wrapping. */
+const FIT_LINE = "min-w-0 overflow-hidden whitespace-nowrap";
+
 function OnTrack({ heat, elapsed }: { heat: LiveHeat; elapsed: number }) {
+  const [listRef, fits] = useUsernamesFit<HTMLOListElement>(heat.drivers.join() + (heat.usernames ?? []).join());
   return (
+    <UsernamesFit.Provider value={fits}>
     <section className="overflow-hidden rounded-lg border-2 border-green-500 bg-white">
       <div className="flex items-center justify-between gap-3 px-4 py-3" style={{ background: heat.color, color: heat.textColor }}>
         <div>
@@ -41,12 +80,16 @@ function OnTrack({ heat, elapsed }: { heat: LiveHeat; elapsed: number }) {
           {formatElapsed(elapsed)}
         </span>
       </div>
-      <ol className="grid grid-cols-2 gap-x-6 gap-y-1 px-4 py-3 text-sm md:text-base font-medium text-gray-800 list-decimal list-inside">
-        {heat.drivers.map((name) => (
-          <li key={name}>{name}</li>
+      <ol ref={listRef} className="grid grid-cols-2 gap-x-6 gap-y-1 px-4 py-3 text-sm md:text-base font-medium text-gray-800 list-decimal list-inside">
+        {heat.drivers.map((name, i) => (
+          <li key={`${name}-${i}`} data-fit className={FIT_LINE}>
+            {name}
+            <Username value={heat.usernames?.[i]} />
+          </li>
         ))}
       </ol>
     </section>
+    </UsernamesFit.Provider>
   );
 }
 
@@ -73,8 +116,11 @@ function StandingsTable({ stage, rows, cut }: { stage: LiveStage; rows: LiveRow[
                     {rank ?? "–"}
                     {r.tied && <span className="ml-1 text-[10px] font-semibold text-amber-600">TIE</span>}
                   </td>
-                  <td className="px-3 py-2 font-semibold text-gray-900">
-                    {r.name}
+                  <td className="w-full max-w-0 px-3 py-2 font-semibold text-gray-900">
+                    <div data-fit className={FIT_LINE}>
+                      {r.name}
+                      <Username value={r.username} />
+                    </div>
                     {STATUS_TEXT[r.status] && <span className="block text-xs font-medium text-gray-400">{STATUS_TEXT[r.status]}</span>}
                   </td>
                   {!stage.perGroupCut && <td className="px-3 py-2">{r.group && <Chip tag={r.group} />}</td>}
@@ -109,8 +155,13 @@ function FragmentWithCut({ showCut, cut, cols, children }: { showCut: boolean; c
 function StageView({ stage }: { stage: LiveStage }) {
   // Only real entries count. Untimed practice should show its groups, not a list of blanks.
   const hasResults = stage.standings.some((r) => r.status !== "not_run" && r.status !== "no_result");
+  // One decision for the whole round, so every group table looks the same.
+  const [scopeRef, fits] = useUsernamesFit<HTMLDivElement>(
+    stage.name + stage.standings.map((r) => r.name + (r.username ?? "")).join() + stage.groups.map((g) => g.drivers.join() + (g.usernames ?? []).join()).join(),
+  );
   return (
-    <div className="space-y-4">
+    <UsernamesFit.Provider value={fits}>
+    <div ref={scopeRef} className="space-y-4">
       <p className="text-sm text-gray-500">
         {stage.sessions.done}/{stage.sessions.total} sessions complete · {stage.rule}
         {stage.provisional && hasResults && (
@@ -136,8 +187,11 @@ function StageView({ stage }: { stage: LiveStage }) {
                 <span className="text-xs font-semibold normal-case opacity-90">{g.state}</span>
               </div>
               <ol className="px-3 py-2 text-sm text-gray-800 list-decimal list-inside">
-                {g.drivers.map((name) => (
-                  <li key={name}>{name}</li>
+                {g.drivers.map((name, i) => (
+                  <li key={`${name}-${i}`} data-fit className={FIT_LINE}>
+                    {name}
+                    <Username value={g.usernames?.[i]} />
+                  </li>
                 ))}
               </ol>
             </div>
@@ -149,6 +203,7 @@ function StageView({ stage }: { stage: LiveStage }) {
         </p>
       )}
     </div>
+    </UsernamesFit.Provider>
   );
 }
 
@@ -255,7 +310,10 @@ export default function LiveResults() {
             {live.podium.map((p, i) => (
               <li key={p.name} className={`rounded-sm px-4 py-3 ${i === 0 ? "bg-umass" : "bg-white/10"}`}>
                 <span className="text-xs font-semibold uppercase tracking-widest text-white/70">{i === 0 ? "Champion" : `P${i + 1}`}</span>
-                <p className="text-xl font-extrabold">{p.name}</p>
+                <p className="text-xl font-extrabold">
+                  {p.name}
+                  <Username value={p.username} className="text-base text-white/60" />
+                </p>
                 {p.lapMs !== null && <p className="font-mono text-sm text-white/80">{formatLap(p.lapMs)}</p>}
               </li>
             ))}

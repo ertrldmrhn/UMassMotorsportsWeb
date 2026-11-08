@@ -16,12 +16,16 @@ export interface LiveHeat extends LiveGroupTag {
   status: "planned" | "staging" | "on_track";
   startedAt: number | null;
   drivers: string[];
+  /** Track usernames in driver order; '' when none. Older snapshots leave it out. */
+  usernames?: string[];
 }
 
 export interface LiveRow {
   rank: number | null;
   groupRank: number | null;
   name: string;
+  /** Track username, shown in gray beside the name. */
+  username?: string;
   group: LiveGroupTag | null;
   lapMs: number | null;
   position: number | null;
@@ -33,6 +37,7 @@ export interface LiveRow {
 export interface LiveGroup extends LiveGroupTag {
   state: string;
   drivers: string[];
+  usernames?: string[];
 }
 
 export interface LiveStage {
@@ -62,7 +67,7 @@ export interface LiveFeed {
   onTrack: LiveHeat[];
   next: LiveHeat[];
   stages: LiveStage[];
-  podium: { name: string; lapMs: number | null }[];
+  podium: { name: string; username?: string; lapMs: number | null }[];
   podiumFinal: boolean;
 }
 

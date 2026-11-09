@@ -118,9 +118,9 @@ export default function EventCard({
           </a>
         )}
 
-        {event.liveResults && (
+        {(event.results || event.liveResults) && (
           <a
-            href={event.liveResults}
+            href={event.results ?? event.liveResults}
             className="mt-3 mr-4 inline-block text-sm font-semibold text-umass hover:underline"
           >
             {past ? "Results →" : "Live results →"}

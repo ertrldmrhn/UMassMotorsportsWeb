@@ -13,6 +13,7 @@ import {
   type LiveStage,
   type NotLive,
 } from "@/lib/liveFeed";
+import type { PastTournament } from "@/lib/pastResults";
 
 const POLL_MS = 15_000;
 /** No update in this long probably means the track's internet dropped. */
@@ -207,13 +208,17 @@ function StageView({ stage }: { stage: LiveStage }) {
   );
 }
 
-export default function LiveResults() {
+/**
+ * The live page. Polls the feed during an event. With an `archive`, it shows
+ * that finished tournament whenever nothing newer has been published, so the
+ * last results never vanish between events.
+ */
+export default function LiveResults({ archive }: { archive?: PastTournament }) {
   const [feed, setFeed] = useState<LiveFeed | NotLive | null>(null);
   const [failed, setFailed] = useState(false);
   /** Cloudflare's clock minus this phone's, from the response Date header. */
   const [skew, setSkew] = useState(0);
   const [now, setNow] = useState<number | null>(null);
-  const [picked, setPicked] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     try {
@@ -250,12 +255,10 @@ export default function LiveResults() {
     };
   }, [load]);
 
-  const live = feed && feed.live ? feed : null;
-  const visibleStages = useMemo(() => (live ? live.stages.filter((s) => s.state !== "upcoming" || s.groups.length > 0) : []), [live]);
-  const defaultStage =
-    (live?.currentStage && visibleStages.find((s) => s.name === live.currentStage)?.name) ?? visibleStages[visibleStages.length - 1]?.name ?? null;
-  const stageName = picked && visibleStages.some((s) => s.name === picked) ? picked : defaultStage;
-  const stage = visibleStages.find((s) => s.name === stageName) ?? null;
+  // Only a snapshot published after the archived one counts as a new event.
+  const live = feed && feed.live && !(archive && feed.publishedAt <= archive.feed.publishedAt) ? feed : null;
+
+  if (!live && archive) return <FinalResults tournament={archive} />;
 
   if (feed === null) {
     return <p className="py-16 text-center text-gray-500">{failed ? "Can't reach live results right now. Retrying…" : "Loading live results…"}</p>;
@@ -281,33 +284,100 @@ export default function LiveResults() {
   const updated = new Date(live.receivedAt - skew).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
 
   return (
-    <div className="space-y-6">
-      <header className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">Live Results</h1>
-          <p className="text-sm text-gray-500">
-            {live.event.name} · {live.event.venue}
-          </p>
-        </div>
-        {live.paused ? (
-          <span className="rounded-sm bg-amber-100 px-3 py-1.5 text-sm font-semibold text-amber-800">Event paused</span>
-        ) : stale || failed ? (
-          <span className="rounded-sm bg-amber-100 px-3 py-1.5 text-sm font-semibold text-amber-800">Waiting for the next update · last at {updated}</span>
-        ) : (
-          <span className="inline-flex items-center gap-2 rounded-sm bg-green-500/15 px-3 py-1.5 text-sm font-semibold text-green-700">
-            <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" aria-hidden="true" />
-            Live · updated {age < 60_000 ? `${Math.max(0, Math.round(age / 1000))}s` : `${Math.round(age / 60_000)} min`} ago
-          </span>
-        )}
-      </header>
+    <ResultsBoard
+      feed={live}
+      header={
+        <header className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">Live Results</h1>
+            <p className="text-sm text-gray-500">
+              {live.event.name} · {live.event.venue}
+            </p>
+          </div>
+          {live.paused ? (
+            <span className="rounded-sm bg-amber-100 px-3 py-1.5 text-sm font-semibold text-amber-800">Event paused</span>
+          ) : stale || failed ? (
+            <span className="rounded-sm bg-amber-100 px-3 py-1.5 text-sm font-semibold text-amber-800">Waiting for the next update · last at {updated}</span>
+          ) : (
+            <span className="inline-flex items-center gap-2 rounded-sm bg-green-500/15 px-3 py-1.5 text-sm font-semibold text-green-700">
+              <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" aria-hidden="true" />
+              Live · updated {age < 60_000 ? `${Math.max(0, Math.round(age / 1000))}s` : `${Math.round(age / 60_000)} min`} ago
+            </span>
+          )}
+        </header>
+      }
+      track={
+        <>
+          {live.onTrack.map((h) => (
+            <OnTrack key={h.title + h.stage} heat={h} elapsed={h.startedAt ? serverNow - (h.startedAt + laptopSkew) : 0} />
+          ))}
+          {live.onTrack.length === 0 && live.podium.length === 0 && (
+            <p className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-600">
+              <Flag size={15} aria-hidden="true" /> Track is clear
+            </p>
+          )}
 
-      {live.podium.length > 0 && (
+          {live.next.length > 0 && (
+            <section>
+              <h2 className="mb-2 text-xs font-bold uppercase tracking-widest text-gray-500">Up next</h2>
+              <div className="flex flex-wrap gap-2">
+                {live.next.map((h, i) => (
+                  <div key={h.title + h.stage + i} className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2">
+                    <Chip tag={h} />
+                    <span className="text-sm font-medium text-gray-700">{h.stage}</span>
+                    {h.status === "staging" && <span className="text-xs font-semibold text-amber-700">In staging</span>}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+        </>
+      }
+      footnote="Times are typed in from the track printouts and can be corrected. Results stay provisional until each round is finalized. Highlighted drivers are on course to advance."
+    />
+  );
+}
+
+/** A finished tournament, frozen in the repo. Opens on the final. */
+export function FinalResults({ tournament }: { tournament: PastTournament }) {
+  const { feed } = tournament;
+  return (
+    <ResultsBoard
+      feed={feed}
+      header={
+        <header>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-umass">Final results</p>
+          <h1 className="mt-1 text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">{tournament.title}</h1>
+          <p className="text-sm text-gray-500">
+            {tournament.when} · {feed.event.venue}
+          </p>
+        </header>
+      }
+      footnote="Lap times were typed in from the track printouts. Highlighted drivers advanced to the next round. Pick a round above to see its groups and times."
+    />
+  );
+}
+
+/** Podium, then a tab per round. Shared by the live page and past results. */
+function ResultsBoard({ feed, header, track, footnote }: { feed: LiveFeed; header: React.ReactNode; track?: React.ReactNode; footnote: string }) {
+  const [picked, setPicked] = useState<string | null>(null);
+  const visibleStages = useMemo(() => feed.stages.filter((s) => s.state !== "upcoming" || s.groups.length > 0), [feed]);
+  const defaultStage =
+    (feed.currentStage && visibleStages.find((s) => s.name === feed.currentStage)?.name) ?? visibleStages[visibleStages.length - 1]?.name ?? null;
+  const stageName = picked && visibleStages.some((s) => s.name === picked) ? picked : defaultStage;
+  const stage = visibleStages.find((s) => s.name === stageName) ?? null;
+
+  return (
+    <div className="space-y-6">
+      {header}
+
+      {feed.podium.length > 0 && (
         <section className="rounded-lg bg-charcoal p-5 text-white">
           <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white/60">
-            <Trophy size={14} aria-hidden="true" /> {live.podiumFinal ? "Final results" : "Final results, provisional"}
+            <Trophy size={14} aria-hidden="true" /> {feed.podiumFinal ? "Final results" : "Final results, provisional"}
           </p>
           <ol className="mt-3 grid gap-3 sm:grid-cols-3">
-            {live.podium.map((p, i) => (
+            {feed.podium.map((p, i) => (
               <li key={p.name} className={`rounded-sm px-4 py-3 ${i === 0 ? "bg-umass" : "bg-white/10"}`}>
                 <span className="text-xs font-semibold uppercase tracking-widest text-white/70">{i === 0 ? "Champion" : `P${i + 1}`}</span>
                 <p className="text-xl font-extrabold">
@@ -321,29 +391,7 @@ export default function LiveResults() {
         </section>
       )}
 
-      {live.onTrack.map((h) => (
-        <OnTrack key={h.title + h.stage} heat={h} elapsed={h.startedAt ? serverNow - (h.startedAt + laptopSkew) : 0} />
-      ))}
-      {live.onTrack.length === 0 && live.podium.length === 0 && (
-        <p className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-600">
-          <Flag size={15} aria-hidden="true" /> Track is clear
-        </p>
-      )}
-
-      {live.next.length > 0 && (
-        <section>
-          <h2 className="mb-2 text-xs font-bold uppercase tracking-widest text-gray-500">Up next</h2>
-          <div className="flex flex-wrap gap-2">
-            {live.next.map((h, i) => (
-              <div key={h.title + h.stage + i} className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2">
-                <Chip tag={h} />
-                <span className="text-sm font-medium text-gray-700">{h.stage}</span>
-                {h.status === "staging" && <span className="text-xs font-semibold text-amber-700">In staging</span>}
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+      {track}
 
       {visibleStages.length > 0 && (
         <section className="space-y-3">
@@ -366,10 +414,7 @@ export default function LiveResults() {
         </section>
       )}
 
-      <p className="text-xs leading-relaxed text-gray-400">
-        Times are typed in from the track printouts and can be corrected. Results stay provisional until each round is finalized. Highlighted drivers are on
-        course to advance.
-      </p>
+      <p className="text-xs leading-relaxed text-gray-400">{footnote}</p>
     </div>
   );
 }

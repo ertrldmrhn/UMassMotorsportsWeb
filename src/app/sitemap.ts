@@ -1,3 +1,4 @@
+import { pastTournamentHref, pastTournaments } from "@/lib/pastResults";
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 /**
@@ -24,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/photos", priority: 0.6, changeFrequency: "monthly" as const },
     { path: "/forms", priority: 0.6, changeFrequency: "monthly" as const },
     { path: "/sponsors", priority: 0.6, changeFrequency: "monthly" as const },
+    ...pastTournaments.map((t) => ({ path: pastTournamentHref(t), priority: 0.5, changeFrequency: "yearly" as const })),
   ];
 
   return routes.map(({ path, priority, changeFrequency }) => ({

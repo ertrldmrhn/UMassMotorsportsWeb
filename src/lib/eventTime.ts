@@ -74,6 +74,18 @@ export function isLiveTimingOn(event: ClubEvent, now: number): boolean {
   return now >= from && now < until;
 }
 
+/**
+ * Whether the homepage banner should point at the final results: from the end
+ * of live timing to the end of `resultsBannerUntil`.
+ */
+export function isResultsBannerOn(event: ClubEvent, now: number): boolean {
+  if (!event.results || !event.resultsBannerUntil) return false;
+  const from = event.liveUntil ? parseEventTime(event.date, event.liveUntil).getTime() : getEventEnd(event).getTime();
+  const [year, month, day] = event.resultsBannerUntil.split("-").map(Number);
+  const until = new Date(year, month - 1, day, 23, 59, 59, 999).getTime();
+  return now >= from && now <= until;
+}
+
 /** Whether sign-ups can still be taken, i.e. a link is worth showing. */
 export function isRegistrationOpen(event: ClubEvent, now: number): boolean {
   const state = getRegistrationState(event, now);

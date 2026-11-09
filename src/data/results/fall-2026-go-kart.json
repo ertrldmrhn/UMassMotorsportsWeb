@@ -1,0 +1,3181 @@
+{
+ "format": "ummsc-live",
+ "v": 1,
+ "live": true,
+ "publishedAt": 1794201637464,
+ "event": {
+  "name": "UMMSC Go-Kart Tournament",
+  "venue": "Pioneer Valley Indoor Karting",
+  "date": "2026-11-08",
+  "trackStart": "18:00"
+ },
+ "paused": false,
+ "currentStage": null,
+ "onTrack": [],
+ "next": [],
+ "stages": [
+  {
+   "name": "Free Practice",
+   "type": "practice",
+   "state": "complete",
+   "provisional": true,
+   "rule": "no advancement",
+   "scoring": "best_lap",
+   "cut": null,
+   "perGroupCut": null,
+   "sessions": {
+    "done": 7,
+    "total": 7
+   },
+   "groups": [
+    {
+     "label": "Red",
+     "color": "#E5262B",
+     "textColor": "#FFFFFF",
+     "state": "Completed",
+     "drivers": [
+      "Selin O.",
+      "Bahadir M.",
+      "Emin O.",
+      "Alexander W.",
+      "Aarna P.",
+      "Thomas P.",
+      "Andrew P.",
+      "Jacob B."
+     ],
+     "usernames": [
+      "IISELINQ",
+      "toyuqdoner",
+      "v4vandeadta",
+      "alex676767",
+      "aarna",
+      "squishybob",
+      "androidunit56",
+      "pzdato"
+     ]
+    },
+    {
+     "label": "Blue",
+     "color": "#1F6FEB",
+     "textColor": "#FFFFFF",
+     "state": "Completed",
+     "drivers": [
+      "Aaryan V.",
+      "Arda E.",
+      "J.R. W.",
+      "Forrest S.",
+      "Ryan B.",
+      "Bata A.",
+      "Bjorn H.",
+      "Ramin S."
+     ],
+     "usernames": [
+      "aryan",
+      "ake",
+      "volvo",
+      "foretg",
+      "ryanbille",
+      "batanilla",
+      "bjorno",
+      "ramin123"
+     ]
+    },
+    {
+     "label": "Green",
+     "color": "#17A34A",
+     "textColor": "#FFFFFF",
+     "state": "Completed",
+     "drivers": [
+      "Cyrus B.",
+      "Junior M.",
+      "Adam S.",
+      "Max F.",
+      "Cooper L.",
+      "Mokshim G.",
+      "Adya B.",
+      "Ethan Y."
+     ],
+     "usernames": [
+      "fihcyrus",
+      "junior",
+      "dadam",
+      "maxfal14",
+      "coop.law",
+      "captaintoad",
+      "adya",
+      "3y"
+     ]
+    },
+    {
+     "label": "Orange",
+     "color": "#F97316",
+     "textColor": "#141414",
+     "state": "Completed",
+     "drivers": [
+      "Nick H.",
+      "Alex G.",
+      "Srivibhu P.",
+      "Ryan R.",
+      "Aidan W.",
+      "Abdullah S."
+     ],
+     "usernames": [
+      "jigglyjoe",
+      "gundy",
+      "deeznuts",
+      "ryrichards16",
+      "aidanw1",
+      ""
+     ]
+    },
+    {
+     "label": "Yellow",
+     "color": "#FACC15",
+     "textColor": "#141414",
+     "state": "Completed",
+     "drivers": [
+      "Edriel F.",
+      "Varun D.",
+      "Michael K.",
+      "Ying C.",
+      "Sarah L.",
+      "Nate H.",
+      "Joao G.",
+      "Jake E."
+     ],
+     "usernames": [
+      "flowstate",
+      "eurobeat",
+      "mikey22",
+      "chinocheng",
+      "bean08",
+      "5hawk",
+      "hamildown",
+      "jezrin"
+     ]
+    },
+    {
+     "label": "Pink",
+     "color": "#F472B6",
+     "textColor": "#141414",
+     "state": "Completed",
+     "drivers": [
+      "Nadav V.",
+      "Tim G.",
+      "Gordon Z.",
+      "Alex Z.",
+      "Tigran M.",
+      "Marcus W.",
+      "Nikhil V."
+     ],
+     "usernames": [
+      "nadavsoup",
+      "thepumba",
+      "gordonz",
+      "",
+      "tigranm",
+      "marcus w",
+      "nikquick"
+     ]
+    },
+    {
+     "label": "Purple",
+     "color": "#8B3FE0",
+     "textColor": "#FFFFFF",
+     "state": "Completed",
+     "drivers": [
+      "Adam N.",
+      "Akhil N.",
+      "Ertugrul D.",
+      "Kadir D.",
+      "Esat G.",
+      "Mehmet Y."
+     ],
+     "usernames": [
+      "adamlv",
+      "",
+      "vertrl",
+      "dmrhn",
+      "",
+      "muslera"
+     ]
+    }
+   ],
+   "standings": [
+    {
+     "rank": 1,
+     "groupRank": 1,
+     "name": "Nate H.",
+     "username": "5hawk",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 19968,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 2,
+     "groupRank": 1,
+     "name": "Jacob B.",
+     "username": "pzdato",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20187,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 3,
+     "groupRank": 1,
+     "name": "Alex Z.",
+     "username": "",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 20232,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 4,
+     "groupRank": 1,
+     "name": "J.R. W.",
+     "username": "volvo",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20328,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 5,
+     "groupRank": 1,
+     "name": "Ryan R.",
+     "username": "ryrichards16",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 20402,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 6,
+     "groupRank": 2,
+     "name": "Nick H.",
+     "username": "jigglyjoe",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 20490,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 7,
+     "groupRank": 2,
+     "name": "Joao G.",
+     "username": "hamildown",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 20589,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 8,
+     "groupRank": 2,
+     "name": "Emin O.",
+     "username": "v4vandeadta",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20610,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 9,
+     "groupRank": 2,
+     "name": "Bjorn H.",
+     "username": "bjorno",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20680,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 10,
+     "groupRank": 3,
+     "name": "Forrest S.",
+     "username": "foretg",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20891,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 11,
+     "groupRank": 3,
+     "name": "Andrew P.",
+     "username": "androidunit56",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20935,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 12,
+     "groupRank": 4,
+     "name": "Bata A.",
+     "username": "batanilla",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20972,
+     "position": 4,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 13,
+     "groupRank": 2,
+     "name": "Nadav V.",
+     "username": "nadavsoup",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 21051,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 14,
+     "groupRank": 3,
+     "name": "Aidan W.",
+     "username": "aidanw1",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 21058,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 15,
+     "groupRank": 4,
+     "name": "Alex G.",
+     "username": "gundy",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 21104,
+     "position": 4,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 16,
+     "groupRank": 1,
+     "name": "Ertugrul D.",
+     "username": "vertrl",
+     "group": {
+      "label": "Purple",
+      "color": "#8B3FE0",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21155,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 17,
+     "groupRank": 5,
+     "name": "Abdullah S.",
+     "username": "",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 21231,
+     "position": 5,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 18,
+     "groupRank": 3,
+     "name": "Michael K.",
+     "username": "mikey22",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 21405,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 19,
+     "groupRank": 4,
+     "name": "Jake E.",
+     "username": "jezrin",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 21409,
+     "position": 4,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 20,
+     "groupRank": 6,
+     "name": "Esat G.",
+     "username": "",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 21420,
+     "position": 6,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 21,
+     "groupRank": 7,
+     "name": "Srivibhu P.",
+     "username": "deeznuts",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 21505,
+     "position": 7,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 22,
+     "groupRank": 5,
+     "name": "Edriel F.",
+     "username": "flowstate",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 21566,
+     "position": 5,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 23,
+     "groupRank": 1,
+     "name": "Cooper L.",
+     "username": "coop.law",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21601,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 24,
+     "groupRank": 5,
+     "name": "Arda E.",
+     "username": "ake",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21602,
+     "position": 5,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 25,
+     "groupRank": 3,
+     "name": "Tim G.",
+     "username": "thepumba",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 21663,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 26,
+     "groupRank": 4,
+     "name": "Tigran M.",
+     "username": "tigranm",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 21692,
+     "position": 4,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 27,
+     "groupRank": 4,
+     "name": "Thomas P.",
+     "username": "squishybob",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21702,
+     "position": 4,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 28,
+     "groupRank": 6,
+     "name": "Aaryan V.",
+     "username": "aryan",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21703,
+     "position": 6,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 29,
+     "groupRank": 2,
+     "name": "Adam N.",
+     "username": "adamlv",
+     "group": {
+      "label": "Purple",
+      "color": "#8B3FE0",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21833,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 30,
+     "groupRank": 5,
+     "name": "Marcus W.",
+     "username": "marcus w",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 21841,
+     "position": 5,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 31,
+     "groupRank": 6,
+     "name": "Gordon Z.",
+     "username": "gordonz",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 21850,
+     "position": 6,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 32,
+     "groupRank": 6,
+     "name": "Ying C.",
+     "username": "chinocheng",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 21921,
+     "position": 6,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 33,
+     "groupRank": 7,
+     "name": "Ryan B.",
+     "username": "ryanbille",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21933,
+     "position": 7,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 34,
+     "groupRank": 3,
+     "name": "Akhil N.",
+     "username": "",
+     "group": {
+      "label": "Purple",
+      "color": "#8B3FE0",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21976,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 35,
+     "groupRank": 8,
+     "name": "Kadir D.",
+     "username": "dmrhn",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 22002,
+     "position": 8,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 36,
+     "groupRank": 8,
+     "name": "Ramin S.",
+     "username": "ramin123",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 22077,
+     "position": 8,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 37,
+     "groupRank": 5,
+     "name": "Alexander W.",
+     "username": "alex676767",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 22184,
+     "position": 5,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 38,
+     "groupRank": 2,
+     "name": "Adam S.",
+     "username": "dadam",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 22252,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 39,
+     "groupRank": 3,
+     "name": "Cyrus B.",
+     "username": "fihcyrus",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 22665,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 40,
+     "groupRank": 7,
+     "name": "Mehmet Y.",
+     "username": "muslera",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 23020,
+     "position": 7,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 41,
+     "groupRank": 8,
+     "name": "Nikhil V.",
+     "username": "nikquick",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 23030,
+     "position": 8,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 42,
+     "groupRank": 7,
+     "name": "Varun D.",
+     "username": "eurobeat",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 23092,
+     "position": 7,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 43,
+     "groupRank": 6,
+     "name": "Bahadir M.",
+     "username": "toyuqdoner",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 23530,
+     "position": 6,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 44,
+     "groupRank": 4,
+     "name": "Max F.",
+     "username": "maxfal14",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 23740,
+     "position": 4,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 45,
+     "groupRank": 5,
+     "name": "Junior M.",
+     "username": "junior",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 23932,
+     "position": 5,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 46,
+     "groupRank": 6,
+     "name": "Mokshim G.",
+     "username": "captaintoad",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 24463,
+     "position": 6,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 47,
+     "groupRank": 7,
+     "name": "Adya B.",
+     "username": "adya",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 26084,
+     "position": 7,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 48,
+     "groupRank": 8,
+     "name": "Ethan Y.",
+     "username": "3y",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 26652,
+     "position": 8,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 49,
+     "groupRank": 7,
+     "name": "Selin O.",
+     "username": "IISELINQ",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 29282,
+     "position": 7,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 50,
+     "groupRank": 8,
+     "name": "Sarah L.",
+     "username": "bean08",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 29608,
+     "position": 8,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 51,
+     "groupRank": 8,
+     "name": "Aarna P.",
+     "username": "aarna",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 31196,
+     "position": 8,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    }
+   ]
+  },
+  {
+   "name": "Qualifying",
+   "type": "qualifying",
+   "state": "complete",
+   "provisional": false,
+   "rule": "top 32 overall",
+   "scoring": "best_lap",
+   "cut": 32,
+   "perGroupCut": null,
+   "sessions": {
+    "done": 7,
+    "total": 7
+   },
+   "groups": [
+    {
+     "label": "Red",
+     "color": "#E5262B",
+     "textColor": "#FFFFFF",
+     "state": "Completed",
+     "drivers": [
+      "Selin O.",
+      "Bahadir M.",
+      "Emin O.",
+      "Alexander W.",
+      "Aarna P.",
+      "Thomas P.",
+      "Andrew P.",
+      "Jacob B."
+     ],
+     "usernames": [
+      "IISELINQ",
+      "toyuqdoner",
+      "v4vandeadta",
+      "alex676767",
+      "aarna",
+      "squishybob",
+      "androidunit56",
+      "pzdato"
+     ]
+    },
+    {
+     "label": "Blue",
+     "color": "#1F6FEB",
+     "textColor": "#FFFFFF",
+     "state": "Completed",
+     "drivers": [
+      "Aaryan V.",
+      "Arda E.",
+      "J.R. W.",
+      "Forrest S.",
+      "Ryan B.",
+      "Bata A.",
+      "Bjorn H.",
+      "Ramin S."
+     ],
+     "usernames": [
+      "aryan",
+      "ake",
+      "volvo",
+      "foretg",
+      "ryanbille",
+      "batanilla",
+      "bjorno",
+      "ramin123"
+     ]
+    },
+    {
+     "label": "Green",
+     "color": "#17A34A",
+     "textColor": "#FFFFFF",
+     "state": "Completed",
+     "drivers": [
+      "Cyrus B.",
+      "Junior M.",
+      "Adam S.",
+      "Max F.",
+      "Cooper L.",
+      "Mokshim G.",
+      "Adya B.",
+      "Ethan Y."
+     ],
+     "usernames": [
+      "fihcyrus",
+      "junior",
+      "dadam",
+      "maxfal14",
+      "coop.law",
+      "captaintoad",
+      "adya",
+      "3y"
+     ]
+    },
+    {
+     "label": "Orange",
+     "color": "#F97316",
+     "textColor": "#141414",
+     "state": "Completed",
+     "drivers": [
+      "Nick H.",
+      "Alex G.",
+      "Srivibhu P.",
+      "Ryan R.",
+      "Aidan W.",
+      "Abdullah S."
+     ],
+     "usernames": [
+      "jigglyjoe",
+      "gundy",
+      "deeznuts",
+      "ryrichards16",
+      "aidanw1",
+      ""
+     ]
+    },
+    {
+     "label": "Yellow",
+     "color": "#FACC15",
+     "textColor": "#141414",
+     "state": "Completed",
+     "drivers": [
+      "Edriel F.",
+      "Varun D.",
+      "Michael K.",
+      "Ying C.",
+      "Sarah L.",
+      "Nate H.",
+      "Joao G.",
+      "Jake E."
+     ],
+     "usernames": [
+      "flowstate",
+      "eurobeat",
+      "mikey22",
+      "chinocheng",
+      "bean08",
+      "5hawk",
+      "hamildown",
+      "jezrin"
+     ]
+    },
+    {
+     "label": "Pink",
+     "color": "#F472B6",
+     "textColor": "#141414",
+     "state": "Completed",
+     "drivers": [
+      "Nadav V.",
+      "Tim G.",
+      "Gordon Z.",
+      "Alex Z.",
+      "Tigran M.",
+      "Marcus W.",
+      "Nikhil V."
+     ],
+     "usernames": [
+      "nadavsoup",
+      "thepumba",
+      "gordonz",
+      "",
+      "tigranm",
+      "marcus w",
+      "nikquick"
+     ]
+    },
+    {
+     "label": "Purple",
+     "color": "#8B3FE0",
+     "textColor": "#FFFFFF",
+     "state": "Completed",
+     "drivers": [
+      "Adam N.",
+      "Akhil N.",
+      "Ertugrul D.",
+      "Kadir D.",
+      "Esat G.",
+      "Mehmet Y."
+     ],
+     "usernames": [
+      "adamlv",
+      "",
+      "vertrl",
+      "dmrhn",
+      "",
+      "muslera"
+     ]
+    }
+   ],
+   "standings": [
+    {
+     "rank": 1,
+     "groupRank": 1,
+     "name": "Andrew P.",
+     "username": "androidunit56",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 19788,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 2,
+     "groupRank": 1,
+     "name": "Nate H.",
+     "username": "5hawk",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 19820,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 3,
+     "groupRank": 1,
+     "name": "Bjorn H.",
+     "username": "bjorno",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20033,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 4,
+     "groupRank": 2,
+     "name": "Jacob B.",
+     "username": "pzdato",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20066,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 5,
+     "groupRank": 1,
+     "name": "Alex Z.",
+     "username": "",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 20135,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 6,
+     "groupRank": 2,
+     "name": "Forrest S.",
+     "username": "foretg",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20274,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 7,
+     "groupRank": 3,
+     "name": "J.R. W.",
+     "username": "volvo",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20397,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 8,
+     "groupRank": 3,
+     "name": "Emin O.",
+     "username": "v4vandeadta",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20406,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 9,
+     "groupRank": 2,
+     "name": "Michael K.",
+     "username": "mikey22",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 20412,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 10,
+     "groupRank": 1,
+     "name": "Ertugrul D.",
+     "username": "vertrl",
+     "group": {
+      "label": "Purple",
+      "color": "#8B3FE0",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20431,
+     "position": null,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 11,
+     "groupRank": 1,
+     "name": "Ryan R.",
+     "username": "ryrichards16",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 20505,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 12,
+     "groupRank": 3,
+     "name": "Jake E.",
+     "username": "jezrin",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 20516,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 13,
+     "groupRank": 4,
+     "name": "Bata A.",
+     "username": "batanilla",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20602,
+     "position": 4,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 14,
+     "groupRank": 2,
+     "name": "Nick H.",
+     "username": "jigglyjoe",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 20623,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 15,
+     "groupRank": 2,
+     "name": "Nadav V.",
+     "username": "nadavsoup",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 20640,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 16,
+     "groupRank": 2,
+     "name": "Esat G.",
+     "username": "",
+     "group": {
+      "label": "Purple",
+      "color": "#8B3FE0",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20705,
+     "position": null,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 17,
+     "groupRank": 3,
+     "name": "Kadir D.",
+     "username": "dmrhn",
+     "group": {
+      "label": "Purple",
+      "color": "#8B3FE0",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20729,
+     "position": null,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 18,
+     "groupRank": 3,
+     "name": "Tigran M.",
+     "username": "tigranm",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 20763,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 19,
+     "groupRank": 3,
+     "name": "Abdullah S.",
+     "username": "",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 20807,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 20,
+     "groupRank": 5,
+     "name": "Ryan B.",
+     "username": "ryanbille",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20843,
+     "position": 5,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 21,
+     "groupRank": 1,
+     "name": "Adam S.",
+     "username": "dadam",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20905,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 22,
+     "groupRank": 4,
+     "name": "Adam N.",
+     "username": "adamlv",
+     "group": {
+      "label": "Purple",
+      "color": "#8B3FE0",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20951,
+     "position": null,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 23,
+     "groupRank": 4,
+     "name": "Varun D.",
+     "username": "eurobeat",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 20971,
+     "position": 4,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 24,
+     "groupRank": 4,
+     "name": "Srivibhu P.",
+     "username": "deeznuts",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 20987,
+     "position": 4,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 25,
+     "groupRank": 5,
+     "name": "Akhil N.",
+     "username": "",
+     "group": {
+      "label": "Purple",
+      "color": "#8B3FE0",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21092,
+     "position": null,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 26,
+     "groupRank": 4,
+     "name": "Gordon Z.",
+     "username": "gordonz",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 21136,
+     "position": 4,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 27,
+     "groupRank": 5,
+     "name": "Aidan W.",
+     "username": "aidanw1",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 21164,
+     "position": 5,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 28,
+     "groupRank": 5,
+     "name": "Joao G.",
+     "username": "hamildown",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 21171,
+     "position": 5,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 29,
+     "groupRank": 6,
+     "name": "Ying C.",
+     "username": "chinocheng",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 21303,
+     "position": 6,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 30,
+     "groupRank": 5,
+     "name": "Marcus W.",
+     "username": "marcus w",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 21303,
+     "position": 5,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 31,
+     "groupRank": 6,
+     "name": "Mehmet Y.",
+     "username": "muslera",
+     "group": {
+      "label": "Purple",
+      "color": "#8B3FE0",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21310,
+     "position": null,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 32,
+     "groupRank": 4,
+     "name": "Alexander W.",
+     "username": "alex676767",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21332,
+     "position": 4,
+     "status": "ranked",
+     "tied": false,
+     "advancing": true
+    },
+    {
+     "rank": 33,
+     "groupRank": 6,
+     "name": "Tim G.",
+     "username": "thepumba",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 21333,
+     "position": 6,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 34,
+     "groupRank": 7,
+     "name": "Edriel F.",
+     "username": "flowstate",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 21342,
+     "position": 7,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 35,
+     "groupRank": 2,
+     "name": "Cooper L.",
+     "username": "coop.law",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21366,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 36,
+     "groupRank": 6,
+     "name": "Ramin S.",
+     "username": "ramin123",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21457,
+     "position": 6,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 37,
+     "groupRank": 7,
+     "name": "Arda E.",
+     "username": "ake",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21517,
+     "position": 7,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 38,
+     "groupRank": 6,
+     "name": "Alex G.",
+     "username": "gundy",
+     "group": {
+      "label": "Orange",
+      "color": "#F97316",
+      "textColor": "#141414"
+     },
+     "lapMs": 21648,
+     "position": 6,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 39,
+     "groupRank": 8,
+     "name": "Aaryan V.",
+     "username": "aryan",
+     "group": {
+      "label": "Blue",
+      "color": "#1F6FEB",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21785,
+     "position": 8,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 40,
+     "groupRank": 3,
+     "name": "Cyrus B.",
+     "username": "fihcyrus",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21873,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 41,
+     "groupRank": 5,
+     "name": "Bahadir M.",
+     "username": "toyuqdoner",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 22112,
+     "position": 5,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 42,
+     "groupRank": 7,
+     "name": "Nikhil V.",
+     "username": "nikquick",
+     "group": {
+      "label": "Pink",
+      "color": "#F472B6",
+      "textColor": "#141414"
+     },
+     "lapMs": 22308,
+     "position": 7,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 43,
+     "groupRank": 6,
+     "name": "Thomas P.",
+     "username": "squishybob",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 22450,
+     "position": 6,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 44,
+     "groupRank": 4,
+     "name": "Junior M.",
+     "username": "junior",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 22914,
+     "position": 4,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 45,
+     "groupRank": 8,
+     "name": "Sarah L.",
+     "username": "bean08",
+     "group": {
+      "label": "Yellow",
+      "color": "#FACC15",
+      "textColor": "#141414"
+     },
+     "lapMs": 23144,
+     "position": 8,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 46,
+     "groupRank": 5,
+     "name": "Mokshim G.",
+     "username": "captaintoad",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 23372,
+     "position": 5,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 47,
+     "groupRank": 6,
+     "name": "Max F.",
+     "username": "maxfal14",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 24312,
+     "position": 6,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 48,
+     "groupRank": 7,
+     "name": "Adya B.",
+     "username": "adya",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 24794,
+     "position": 7,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 49,
+     "groupRank": 8,
+     "name": "Ethan Y.",
+     "username": "3y",
+     "group": {
+      "label": "Green",
+      "color": "#17A34A",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 24802,
+     "position": 8,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 50,
+     "groupRank": 7,
+     "name": "Selin O.",
+     "username": "IISELINQ",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 28503,
+     "position": 7,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 51,
+     "groupRank": 8,
+     "name": "Aarna P.",
+     "username": "aarna",
+     "group": {
+      "label": "Red",
+      "color": "#E5262B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 28689,
+     "position": 8,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    }
+   ]
+  },
+  {
+   "name": "Quarterfinals",
+   "type": "quarterfinal",
+   "state": "complete",
+   "provisional": false,
+   "rule": "top 4 per group",
+   "scoring": "finish_position",
+   "cut": null,
+   "perGroupCut": 4,
+   "sessions": {
+    "done": 4,
+    "total": 4
+   },
+   "groups": [
+    {
+     "label": "Black",
+     "color": "#26272B",
+     "textColor": "#FFFFFF",
+     "state": "Completed",
+     "drivers": [
+      "Andrew P.",
+      "Emin O.",
+      "Michael K.",
+      "Esat G.",
+      "Kadir D.",
+      "Srivibhu P.",
+      "Akhil N.",
+      "Alexander W."
+     ],
+     "usernames": [
+      "androidunit56",
+      "v4vandeadta",
+      "mikey22",
+      "",
+      "dmrhn",
+      "deeznuts",
+      "",
+      "alex676767"
+     ]
+    },
+    {
+     "label": "Lime",
+     "color": "#A3E635",
+     "textColor": "#141414",
+     "state": "Completed",
+     "drivers": [
+      "Nate H.",
+      "J.R. W.",
+      "Ertugrul D.",
+      "Nadav V.",
+      "Tigran M.",
+      "Varun D.",
+      "Gordon Z.",
+      "Mehmet Y."
+     ],
+     "usernames": [
+      "5hawk",
+      "volvo",
+      "vertrl",
+      "nadavsoup",
+      "tigranm",
+      "eurobeat",
+      "gordonz",
+      "muslera"
+     ]
+    },
+    {
+     "label": "Teal",
+     "color": "#14B8A6",
+     "textColor": "#141414",
+     "state": "Completed",
+     "drivers": [
+      "Bjorn H.",
+      "Forrest S.",
+      "Ryan R.",
+      "Nick H.",
+      "Abdullah S.",
+      "Adam N.",
+      "Aidan W.",
+      "Marcus W."
+     ],
+     "usernames": [
+      "bjorno",
+      "foretg",
+      "ryrichards16",
+      "jigglyjoe",
+      "",
+      "adamlv",
+      "aidanw1",
+      "marcus w"
+     ]
+    },
+    {
+     "label": "Coral",
+     "color": "#FF7F66",
+     "textColor": "#141414",
+     "state": "Completed",
+     "drivers": [
+      "Jacob B.",
+      "Alex Z.",
+      "Jake E.",
+      "Bata A.",
+      "Ryan B.",
+      "Adam S.",
+      "Joao G.",
+      "Ying C."
+     ],
+     "usernames": [
+      "pzdato",
+      "",
+      "jezrin",
+      "batanilla",
+      "ryanbille",
+      "dadam",
+      "hamildown",
+      "chinocheng"
+     ]
+    }
+   ],
+   "standings": [
+    {
+     "rank": 1,
+     "groupRank": 1,
+     "name": "Andrew P.",
+     "username": "androidunit56",
+     "group": {
+      "label": "Black",
+      "color": "#26272B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 19832,
+     "position": 1,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 1,
+     "groupRank": 1,
+     "name": "Nate H.",
+     "username": "5hawk",
+     "group": {
+      "label": "Lime",
+      "color": "#A3E635",
+      "textColor": "#141414"
+     },
+     "lapMs": 19829,
+     "position": 1,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 1,
+     "groupRank": 1,
+     "name": "Ryan R.",
+     "username": "ryrichards16",
+     "group": {
+      "label": "Teal",
+      "color": "#14B8A6",
+      "textColor": "#141414"
+     },
+     "lapMs": 19950,
+     "position": 1,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 1,
+     "groupRank": 1,
+     "name": "Jacob B.",
+     "username": "pzdato",
+     "group": {
+      "label": "Coral",
+      "color": "#FF7F66",
+      "textColor": "#141414"
+     },
+     "lapMs": 19763,
+     "position": 1,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 5,
+     "groupRank": 2,
+     "name": "Emin O.",
+     "username": "v4vandeadta",
+     "group": {
+      "label": "Black",
+      "color": "#26272B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 19875,
+     "position": 2,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 5,
+     "groupRank": 2,
+     "name": "J.R. W.",
+     "username": "volvo",
+     "group": {
+      "label": "Lime",
+      "color": "#A3E635",
+      "textColor": "#141414"
+     },
+     "lapMs": 19541,
+     "position": 2,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 5,
+     "groupRank": 2,
+     "name": "Forrest S.",
+     "username": "foretg",
+     "group": {
+      "label": "Teal",
+      "color": "#14B8A6",
+      "textColor": "#141414"
+     },
+     "lapMs": 19874,
+     "position": 2,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 5,
+     "groupRank": 2,
+     "name": "Jake E.",
+     "username": "jezrin",
+     "group": {
+      "label": "Coral",
+      "color": "#FF7F66",
+      "textColor": "#141414"
+     },
+     "lapMs": 20683,
+     "position": 2,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 9,
+     "groupRank": 3,
+     "name": "Michael K.",
+     "username": "mikey22",
+     "group": {
+      "label": "Black",
+      "color": "#26272B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20365,
+     "position": 3,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 9,
+     "groupRank": 3,
+     "name": "Ertugrul D.",
+     "username": "vertrl",
+     "group": {
+      "label": "Lime",
+      "color": "#A3E635",
+      "textColor": "#141414"
+     },
+     "lapMs": 20184,
+     "position": 3,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 9,
+     "groupRank": 3,
+     "name": "Aidan W.",
+     "username": "aidanw1",
+     "group": {
+      "label": "Teal",
+      "color": "#14B8A6",
+      "textColor": "#141414"
+     },
+     "lapMs": 20686,
+     "position": 3,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 9,
+     "groupRank": 3,
+     "name": "Alex Z.",
+     "username": "",
+     "group": {
+      "label": "Coral",
+      "color": "#FF7F66",
+      "textColor": "#141414"
+     },
+     "lapMs": 20806,
+     "position": 3,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 13,
+     "groupRank": 4,
+     "name": "Esat G.",
+     "username": "",
+     "group": {
+      "label": "Black",
+      "color": "#26272B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20835,
+     "position": 4,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 13,
+     "groupRank": 4,
+     "name": "Mehmet Y.",
+     "username": "muslera",
+     "group": {
+      "label": "Lime",
+      "color": "#A3E635",
+      "textColor": "#141414"
+     },
+     "lapMs": 21256,
+     "position": 4,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 13,
+     "groupRank": 4,
+     "name": "Bjorn H.",
+     "username": "bjorno",
+     "group": {
+      "label": "Teal",
+      "color": "#14B8A6",
+      "textColor": "#141414"
+     },
+     "lapMs": 20066,
+     "position": 4,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 13,
+     "groupRank": 4,
+     "name": "Joao G.",
+     "username": "hamildown",
+     "group": {
+      "label": "Coral",
+      "color": "#FF7F66",
+      "textColor": "#141414"
+     },
+     "lapMs": null,
+     "position": 4,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 17,
+     "groupRank": 5,
+     "name": "Akhil N.",
+     "username": "",
+     "group": {
+      "label": "Black",
+      "color": "#26272B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 21082,
+     "position": 5,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 17,
+     "groupRank": 5,
+     "name": "Gordon Z.",
+     "username": "gordonz",
+     "group": {
+      "label": "Lime",
+      "color": "#A3E635",
+      "textColor": "#141414"
+     },
+     "lapMs": 21578,
+     "position": 5,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 17,
+     "groupRank": 5,
+     "name": "Abdullah S.",
+     "username": "",
+     "group": {
+      "label": "Teal",
+      "color": "#14B8A6",
+      "textColor": "#141414"
+     },
+     "lapMs": 20384,
+     "position": 5,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 17,
+     "groupRank": 5,
+     "name": "Adam S.",
+     "username": "dadam",
+     "group": {
+      "label": "Coral",
+      "color": "#FF7F66",
+      "textColor": "#141414"
+     },
+     "lapMs": null,
+     "position": 5,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 21,
+     "groupRank": 6,
+     "name": "Kadir D.",
+     "username": "dmrhn",
+     "group": {
+      "label": "Black",
+      "color": "#26272B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20983,
+     "position": 6,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 21,
+     "groupRank": 6,
+     "name": "Nadav V.",
+     "username": "nadavsoup",
+     "group": {
+      "label": "Lime",
+      "color": "#A3E635",
+      "textColor": "#141414"
+     },
+     "lapMs": 21155,
+     "position": 6,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 21,
+     "groupRank": 6,
+     "name": "Marcus W.",
+     "username": "marcus w",
+     "group": {
+      "label": "Teal",
+      "color": "#14B8A6",
+      "textColor": "#141414"
+     },
+     "lapMs": 20875,
+     "position": 6,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 21,
+     "groupRank": 6,
+     "name": "Ryan B.",
+     "username": "ryanbille",
+     "group": {
+      "label": "Coral",
+      "color": "#FF7F66",
+      "textColor": "#141414"
+     },
+     "lapMs": null,
+     "position": 6,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 25,
+     "groupRank": 7,
+     "name": "Srivibhu P.",
+     "username": "deeznuts",
+     "group": {
+      "label": "Black",
+      "color": "#26272B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20935,
+     "position": 7,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 25,
+     "groupRank": 7,
+     "name": "Varun D.",
+     "username": "eurobeat",
+     "group": {
+      "label": "Lime",
+      "color": "#A3E635",
+      "textColor": "#141414"
+     },
+     "lapMs": 20690,
+     "position": 7,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 25,
+     "groupRank": 7,
+     "name": "Nick H.",
+     "username": "jigglyjoe",
+     "group": {
+      "label": "Teal",
+      "color": "#14B8A6",
+      "textColor": "#141414"
+     },
+     "lapMs": 20394,
+     "position": 7,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 25,
+     "groupRank": 7,
+     "name": "Ying C.",
+     "username": "chinocheng",
+     "group": {
+      "label": "Coral",
+      "color": "#FF7F66",
+      "textColor": "#141414"
+     },
+     "lapMs": null,
+     "position": 7,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 29,
+     "groupRank": 8,
+     "name": "Alexander W.",
+     "username": "alex676767",
+     "group": {
+      "label": "Black",
+      "color": "#26272B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20902,
+     "position": 8,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 29,
+     "groupRank": 8,
+     "name": "Tigran M.",
+     "username": "tigranm",
+     "group": {
+      "label": "Lime",
+      "color": "#A3E635",
+      "textColor": "#141414"
+     },
+     "lapMs": 20281,
+     "position": 8,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 29,
+     "groupRank": 8,
+     "name": "Adam N.",
+     "username": "adamlv",
+     "group": {
+      "label": "Teal",
+      "color": "#14B8A6",
+      "textColor": "#141414"
+     },
+     "lapMs": 20857,
+     "position": 8,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 29,
+     "groupRank": 8,
+     "name": "Bata A.",
+     "username": "batanilla",
+     "group": {
+      "label": "Coral",
+      "color": "#FF7F66",
+      "textColor": "#141414"
+     },
+     "lapMs": 20410,
+     "position": 8,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    }
+   ]
+  },
+  {
+   "name": "Semifinals",
+   "type": "semifinal",
+   "state": "complete",
+   "provisional": false,
+   "rule": "top 4 per group",
+   "scoring": "finish_position",
+   "cut": null,
+   "perGroupCut": 4,
+   "sessions": {
+    "done": 2,
+    "total": 2
+   },
+   "groups": [
+    {
+     "label": "Gray",
+     "color": "#9CA3AF",
+     "textColor": "#141414",
+     "state": "Completed",
+     "drivers": [
+      "Andrew P.",
+      "Jacob B.",
+      "Emin O.",
+      "Jake E.",
+      "Michael K.",
+      "Alex Z.",
+      "Esat G.",
+      "Joao G."
+     ],
+     "usernames": [
+      "androidunit56",
+      "pzdato",
+      "v4vandeadta",
+      "jezrin",
+      "mikey22",
+      "",
+      "",
+      "hamildown"
+     ]
+    },
+    {
+     "label": "Brown",
+     "color": "#8B5A2B",
+     "textColor": "#FFFFFF",
+     "state": "Completed",
+     "drivers": [
+      "Nate H.",
+      "Ryan R.",
+      "J.R. W.",
+      "Forrest S.",
+      "Ertugrul D.",
+      "Aidan W.",
+      "Mehmet Y.",
+      "Bjorn H."
+     ],
+     "usernames": [
+      "5hawk",
+      "ryrichards16",
+      "volvo",
+      "foretg",
+      "vertrl",
+      "aidanw1",
+      "muslera",
+      "bjorno"
+     ]
+    }
+   ],
+   "standings": [
+    {
+     "rank": 1,
+     "groupRank": 1,
+     "name": "Jacob B.",
+     "username": "pzdato",
+     "group": {
+      "label": "Gray",
+      "color": "#9CA3AF",
+      "textColor": "#141414"
+     },
+     "lapMs": 19604,
+     "position": 1,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 1,
+     "groupRank": 1,
+     "name": "Nate H.",
+     "username": "5hawk",
+     "group": {
+      "label": "Brown",
+      "color": "#8B5A2B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 19471,
+     "position": 1,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 3,
+     "groupRank": 2,
+     "name": "Andrew P.",
+     "username": "androidunit56",
+     "group": {
+      "label": "Gray",
+      "color": "#9CA3AF",
+      "textColor": "#141414"
+     },
+     "lapMs": 19258,
+     "position": 2,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 3,
+     "groupRank": 2,
+     "name": "Ryan R.",
+     "username": "ryrichards16",
+     "group": {
+      "label": "Brown",
+      "color": "#8B5A2B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 19826,
+     "position": 2,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 5,
+     "groupRank": 3,
+     "name": "Jake E.",
+     "username": "jezrin",
+     "group": {
+      "label": "Gray",
+      "color": "#9CA3AF",
+      "textColor": "#141414"
+     },
+     "lapMs": 20606,
+     "position": 3,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 5,
+     "groupRank": 3,
+     "name": "J.R. W.",
+     "username": "volvo",
+     "group": {
+      "label": "Brown",
+      "color": "#8B5A2B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 19839,
+     "position": 3,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 7,
+     "groupRank": 4,
+     "name": "Alex Z.",
+     "username": "",
+     "group": {
+      "label": "Gray",
+      "color": "#9CA3AF",
+      "textColor": "#141414"
+     },
+     "lapMs": 19898,
+     "position": 4,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 7,
+     "groupRank": 4,
+     "name": "Ertugrul D.",
+     "username": "vertrl",
+     "group": {
+      "label": "Brown",
+      "color": "#8B5A2B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 19996,
+     "position": 4,
+     "status": "ranked",
+     "tied": true,
+     "advancing": true
+    },
+    {
+     "rank": 9,
+     "groupRank": 5,
+     "name": "Michael K.",
+     "username": "mikey22",
+     "group": {
+      "label": "Gray",
+      "color": "#9CA3AF",
+      "textColor": "#141414"
+     },
+     "lapMs": 20403,
+     "position": 5,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 9,
+     "groupRank": 5,
+     "name": "Bjorn H.",
+     "username": "bjorno",
+     "group": {
+      "label": "Brown",
+      "color": "#8B5A2B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20125,
+     "position": 5,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 11,
+     "groupRank": 6,
+     "name": "Joao G.",
+     "username": "hamildown",
+     "group": {
+      "label": "Gray",
+      "color": "#9CA3AF",
+      "textColor": "#141414"
+     },
+     "lapMs": 20350,
+     "position": 6,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 11,
+     "groupRank": 6,
+     "name": "Forrest S.",
+     "username": "foretg",
+     "group": {
+      "label": "Brown",
+      "color": "#8B5A2B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 19824,
+     "position": 6,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 13,
+     "groupRank": 7,
+     "name": "Emin O.",
+     "username": "v4vandeadta",
+     "group": {
+      "label": "Gray",
+      "color": "#9CA3AF",
+      "textColor": "#141414"
+     },
+     "lapMs": 20608,
+     "position": 7,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 13,
+     "groupRank": 7,
+     "name": "Aidan W.",
+     "username": "aidanw1",
+     "group": {
+      "label": "Brown",
+      "color": "#8B5A2B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 20618,
+     "position": 7,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 15,
+     "groupRank": 8,
+     "name": "Esat G.",
+     "username": "",
+     "group": {
+      "label": "Gray",
+      "color": "#9CA3AF",
+      "textColor": "#141414"
+     },
+     "lapMs": 20435,
+     "position": 8,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    },
+    {
+     "rank": 15,
+     "groupRank": 8,
+     "name": "Mehmet Y.",
+     "username": "muslera",
+     "group": {
+      "label": "Brown",
+      "color": "#8B5A2B",
+      "textColor": "#FFFFFF"
+     },
+     "lapMs": 22596,
+     "position": 8,
+     "status": "ranked",
+     "tied": true,
+     "advancing": false
+    }
+   ]
+  },
+  {
+   "name": "Final",
+   "type": "final",
+   "state": "complete",
+   "provisional": true,
+   "rule": "no advancement",
+   "scoring": "finish_position",
+   "cut": null,
+   "perGroupCut": null,
+   "sessions": {
+    "done": 1,
+    "total": 1
+   },
+   "groups": [
+    {
+     "label": "Tan",
+     "color": "#D2B48C",
+     "textColor": "#141414",
+     "state": "Completed",
+     "drivers": [
+      "Jacob B.",
+      "Nate H.",
+      "Andrew P.",
+      "Ryan R.",
+      "Jake E.",
+      "J.R. W.",
+      "Alex Z.",
+      "Ertugrul D."
+     ],
+     "usernames": [
+      "pzdato",
+      "5hawk",
+      "androidunit56",
+      "ryrichards16",
+      "jezrin",
+      "volvo",
+      "",
+      "vertrl"
+     ]
+    }
+   ],
+   "standings": [
+    {
+     "rank": 1,
+     "groupRank": 1,
+     "name": "Nate H.",
+     "username": "5hawk",
+     "group": {
+      "label": "Tan",
+      "color": "#D2B48C",
+      "textColor": "#141414"
+     },
+     "lapMs": 19411,
+     "position": 1,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 2,
+     "groupRank": 2,
+     "name": "Andrew P.",
+     "username": "androidunit56",
+     "group": {
+      "label": "Tan",
+      "color": "#D2B48C",
+      "textColor": "#141414"
+     },
+     "lapMs": 19399,
+     "position": 2,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 3,
+     "groupRank": 3,
+     "name": "Jacob B.",
+     "username": "pzdato",
+     "group": {
+      "label": "Tan",
+      "color": "#D2B48C",
+      "textColor": "#141414"
+     },
+     "lapMs": 19979,
+     "position": 3,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 4,
+     "groupRank": 4,
+     "name": "Ryan R.",
+     "username": "ryrichards16",
+     "group": {
+      "label": "Tan",
+      "color": "#D2B48C",
+      "textColor": "#141414"
+     },
+     "lapMs": 19793,
+     "position": 4,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 5,
+     "groupRank": 5,
+     "name": "Alex Z.",
+     "username": "",
+     "group": {
+      "label": "Tan",
+      "color": "#D2B48C",
+      "textColor": "#141414"
+     },
+     "lapMs": 19502,
+     "position": 5,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 6,
+     "groupRank": 6,
+     "name": "Ertugrul D.",
+     "username": "vertrl",
+     "group": {
+      "label": "Tan",
+      "color": "#D2B48C",
+      "textColor": "#141414"
+     },
+     "lapMs": 20027,
+     "position": 6,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 7,
+     "groupRank": 7,
+     "name": "J.R. W.",
+     "username": "volvo",
+     "group": {
+      "label": "Tan",
+      "color": "#D2B48C",
+      "textColor": "#141414"
+     },
+     "lapMs": 19941,
+     "position": 7,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    },
+    {
+     "rank": 8,
+     "groupRank": 8,
+     "name": "Jake E.",
+     "username": "jezrin",
+     "group": {
+      "label": "Tan",
+      "color": "#D2B48C",
+      "textColor": "#141414"
+     },
+     "lapMs": 19862,
+     "position": 8,
+     "status": "ranked",
+     "tied": false,
+     "advancing": false
+    }
+   ]
+  }
+ ],
+ "podium": [
+  {
+   "name": "Nate H.",
+   "username": "5hawk",
+   "lapMs": 19411
+  },
+  {
+   "name": "Andrew P.",
+   "username": "androidunit56",
+   "lapMs": 19399
+  },
+  {
+   "name": "Jacob B.",
+   "username": "pzdato",
+   "lapMs": 19979
+  }
+ ],
+ "podiumFinal": false,
+ "receivedAt": 1794201637581
+}

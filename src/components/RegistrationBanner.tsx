@@ -7,7 +7,9 @@ import {
   getRegistrationClose,
   getRegistrationState,
   isLiveTimingOn,
+  isResultsBannerOn,
 } from "@/lib/eventTime";
+import { pastTournamentHref, pastTournaments } from "@/lib/pastResults";
 import type { ClubEvent } from "@/data/events";
 
 interface RegistrationBannerProps {
@@ -59,6 +61,10 @@ export default function RegistrationBanner({
   // Live timing wins over sign-up status: on race night that is what people want.
   const liveEvent = events.find((e) => isLiveTimingOn(e, reference));
   if (liveEvent) return <LiveTimingBanner event={liveEvent} />;
+
+  // For a week afterwards, the same slot points at the final results.
+  const resultsEvent = events.find((e) => isResultsBannerOn(e, reference));
+  if (resultsEvent) return <ResultsBanner event={resultsEvent} />;
 
   // Closed events still earn the banner: "it is full" is the answer people
   // are coming to the site for, and saying it loudly prevents the asking.
@@ -237,6 +243,43 @@ function LiveTimingBanner({ event }: { event: ClubEvent }) {
           className="group shrink-0 inline-flex items-center justify-center gap-2 w-full md:w-auto px-7 py-3.5 text-base font-bold rounded-sm transition-colors bg-[#c1272d] text-white hover:bg-[#a81f25] active:bg-[#8e1a1f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
         >
           Live timing
+          <span aria-hidden="true" className="inline-block transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none">
+            →
+          </span>
+        </Link>
+      </div>
+    </aside>
+  );
+}
+
+/** Same slot again, after the event: the champion and a link to every round. */
+function ResultsBanner({ event }: { event: ClubEvent }) {
+  const tournament = pastTournaments.find((t) => pastTournamentHref(t) === event.results);
+  const champion = tournament?.feed.podium[0];
+  return (
+    <aside aria-label="Tournament results" className="relative bg-charcoal">
+      <CheckeredEdge />
+      <div className="max-w-5xl mx-auto px-4 py-4 md:py-5 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+        <div className="min-w-0 flex-1 text-center md:text-left">
+          <p className="flex items-center justify-center md:justify-start gap-2 mb-1.5">
+            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-[#e8686d]" />
+            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-[#e8686d]">Final Results</span>
+          </p>
+          <p className="text-xl md:text-2xl font-extrabold tracking-tight text-white leading-tight">{tournament?.title ?? event.title}</p>
+          <p className="text-sm text-white/55 mt-1">
+            {champion ? (
+              <>
+                Champion: <span className="font-semibold text-white/85">{champion.name}</span> ·{" "}
+              </>
+            ) : null}
+            Podium, groups and lap times from every round · {event.location}
+          </p>
+        </div>
+        <Link
+          href={event.results ?? "/live"}
+          className="group shrink-0 inline-flex items-center justify-center gap-2 w-full md:w-auto px-7 py-3.5 text-base font-bold rounded-sm transition-colors bg-[#c1272d] text-white hover:bg-[#a81f25] active:bg-[#8e1a1f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
+        >
+          View the results
           <span aria-hidden="true" className="inline-block transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none">
             →
           </span>

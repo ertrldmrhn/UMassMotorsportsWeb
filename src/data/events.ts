@@ -21,6 +21,16 @@ export interface ClubEvent {
   liveFrom?: string;
   /** When it comes down, e.g. "11:00 PM". Defaults to the event's end. */
   liveUntil?: string;
+  /**
+   * Permanent results page once it is over, e.g. "/go-kart/fall-2026" (see
+   * lib/pastResults.ts). The schedule card links here instead of the live page.
+   */
+  results?: string;
+  /**
+   * Last day, "YYYY-MM-DD", that the homepage banner points at `results`.
+   * Starts when live timing ends and runs to the end of that day.
+   */
+  resultsBannerUntil?: string;
   image?: string;     // Optional: "/events/autocross-r1.jpg"
   /**
    * Mark cruises. UMass asks for an attendee list for these, so anything
@@ -131,6 +141,8 @@ export const events: ClubEvent[] = [
     liveResults: "/live",
     liveFrom: "5:00 PM",
     liveUntil: "11:00 PM",
+    results: "/go-kart/fall-2026",
+    resultsBannerUntil: "2026-11-15",
     location: "Pioneer Valley Indoor Karting",
     description:
       "Our go-kart tournament at Pioneer Valley Indoor Karting. Both the 60 places and the 20 waitlist spots are full, so sign-ups are closed.",

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { site } from "@/lib/site";
+import { latestTournament, pastTournamentHref } from "@/lib/pastResults";
 
 function DiscordIcon() {
   return (
@@ -15,13 +16,15 @@ function DiscordIcon() {
   );
 }
 
-const navLinks = [
+const navLinks: { href: string; label: string; shortLabel?: string }[] = [
   { href: "/", label: "Home" },
   { href: "/schedule", label: "Schedule" },
   { href: "/photos", label: "Photos" },
   { href: "/forms", label: "Forms" },
   { href: "/sponsors", label: "Sponsors" },
   { href: "/about", label: "About Us" },
+  // The latest finished tournament's results. Stays until the next one replaces it.
+  ...(latestTournament ? [{ href: pastTournamentHref(latestTournament), label: latestTournament.title, shortLabel: "Go Kart Results" }] : []),
 ];
 
 export default function Header() {
@@ -47,20 +50,28 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center justify-center gap-8">
+        <nav className="hidden md:flex items-center justify-center gap-4 lg:gap-5">
           {navLinks.map((link) => {
             const active = isActive(link.href);
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors border-b-2 py-0.5 ${
+                className={`whitespace-nowrap text-sm font-medium transition-colors border-b-2 py-0.5 ${
                   active
                     ? "text-white border-white"
                     : "text-white/70 hover:text-white border-transparent hover:border-white/40"
                 }`}
               >
-                {link.label}
+                {/* Long labels shorten where the bar is too narrow for them. */}
+                {link.shortLabel ? (
+                  <>
+                    <span className="lg:hidden">{link.shortLabel}</span>
+                    <span className="hidden lg:inline">{link.label}</span>
+                  </>
+                ) : (
+                  link.label
+                )}
               </Link>
             );
           })}

@@ -155,8 +155,8 @@ export const events: ClubEvent[] = [
   {
     title: "Berkshire Trail Cruise",
     cruise: true,
-    date: "2026-11-13",
-    time: "4:00 PM",
+    date: "2026-11-15",
+    time: "11:00 AM",
     location: "Lot 44B, UMass Amherst",
     description: "",
     image: "/events/Berkshire_Trail.jpg",
